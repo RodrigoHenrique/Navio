@@ -34,4 +34,8 @@ class Navio
 		void setMetodoLocomocao(string);
 		void setTipoCombustao(string);
 
-};
+
+		string cSegurançaNaviosdeFinalidadeEspecial; // A.534(13) seção 1.7.
+		string cAdicionalNaviosdeApoioMaritimoOFFSHORE; // A.673(16)seção 1.5, MARPOL 73/78, anexo II, regra13(4).
+	
+	
