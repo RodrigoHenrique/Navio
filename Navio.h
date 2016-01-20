@@ -4,6 +4,14 @@ using namespace std;
 
 class Navio
 {
+	public:
+		
+		Navio(string,string,string,string,string,string,string,string,string,string,string,string,string,string);
+		
+		void setTipoNavio(string);
+		void setMetodoLocomocao(string);
+		void setTipoCombustao(string);
+
 	private:
 	
 	// Parte 1: Essa parte está relacionada a todo e qualquer navio.
@@ -26,16 +34,7 @@ class Navio
 		string metodoLocomocao; // Informa se é por meio de remos, velas, hélices.
 		string tipoCombustao;   // Informa o tipo de material de combustao.
 
-	public:
-		
-		Navio(string,string,string,string,string,string,string,string,string,string,string,string,string,string);
-		
-		void setTipoNavio(string);
-		void setMetodoLocomocao(string);
-		void setTipoCombustao(string);
-
-
-		string cSegurançaNaviosdeFinalidadeEspecial; // A.534(13) seção 1.7.
-		string cAdicionalNaviosdeApoioMaritimoOFFSHORE; // A.673(16)seção 1.5, MARPOL 73/78, anexo II, regra13(4).
+	
+};
 	
 	
