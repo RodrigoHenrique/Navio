@@ -27,4 +27,3 @@ void Navio::imprimeRegistros()
 	cout << "Certificado do Comandante: " << cComandante << "\n";
 	cout << "Certificado de cTripulacao: " << cRegistro << "\n";
 }
-
