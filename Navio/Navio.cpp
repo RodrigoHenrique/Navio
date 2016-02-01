@@ -98,7 +98,11 @@ int Navio::definirVelocidade()
 
 void Navio::navegar()
 {
-	if(distancia == 0.0) cout << "\nChegou ao Destino.\n\n";
+	if(distancia == 0.0)
+	{
+		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distancia << " Km\n";
+		cout << "\nChegou ao Destino.\n\n";
+	}	
 	else
 	{
 		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distancia << " Km\n";
