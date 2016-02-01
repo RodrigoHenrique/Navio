@@ -1,31 +1,26 @@
 #include <iostream>
-#include "Navio.h"
-using std::count;
-using std::cin;
-using std::endl;
-
 #include <string>
-using std::string;
-using std::getline;
+#include "Navio.h"
+
+
 
 int main(int argc, char **argv)
 {
-	string navio,passageiros,comandante,tripulacao;
-	float latinicial = -1.477252;
-	float loninicial = -48.454593;
+	Navio navio1("Savannah"),navio2;
 	
-	cout << "Inicializacao\n\n";
+	navio1.definirRota();
+	if(navio1.ligarMotores())
+	{
+		navio1.navegar();
+		if(navio1.chegouDestino()) navio1.dadosdaViagem();	
+	}
 	
-	cout << "Certificado de Registro: ";
-	getline(cin,navio);
-	cout << "Certificado de Passageiros: ";
-	getline(cin,passageiros);
-	cout << "Certificado do Comandante: ";
-	getline(cin,comandante);
-	cout << "Certificado de cTripulacao: ";
-	getline(cin,tripulacao);
-	
-	Navio navio1(navio,passageiros,comandante,tripulacao,latinicial,loninicial);
-	navio1.imprimeRegistros()
+	navio2.definirRota();
+	if(navio2.ligarMotores())
+	{
+		navio2.navegar();
+		if(navio2.chegouDestino()) navio2.dadosdaViagem();	
+	}
+		
 	return 0;
 }

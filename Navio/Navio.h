@@ -2,30 +2,34 @@
 #define NAVIO_H
 #include <string>
 
+using std::string;
 
 class Navio
 {
 public:
-	Navio(string,string,string,string,float,float);
+	Navio(string);
+	Navio();
 	~Navio();
 	
-	void imprimeRegistros();
-	bool ligarMotores(string,bool);
-	bool desligarMotores(string,bool);
-	bool ativarSonar(string,bool);
-	void localizacaoAtual(float,float);
-	void sos(float,float);
+	void definirRota();
+	bool ligarMotores();
+	int definirVelocidade();
+	void navegar();
+	bool chegouDestino();
+	void dadosdaViagem();
 	
+
 private:
-	string cRegistro;
-	string cPassageiros;
-	string cComandante;
-	string cTripulacao;
-	float latitude;
-	float longitude;
-	string direcao;
+	string nomeNavio;
+	bool liberaNavegacao;
 	bool estadoMotor;
-	bool estadoSonar;
+	
+	string pPartida;
+	string pDestino;
+	int distancia;
+	int nivelVelocidade;
+	int velocidade;
+	int tempoHoras;
 };
 
 #endif // NAVIO_H
