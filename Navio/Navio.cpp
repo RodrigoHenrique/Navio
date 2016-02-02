@@ -12,7 +12,7 @@ Navio::Navio(string nome)
 	liberaNavegacao = true;
 	estadoMotor = false;
 	nivelVelocidade = 0;
-	velocidade = 0;
+	velocidadeKmHora = 0;
 	tempoHoras = 0;
 }
 
@@ -22,7 +22,7 @@ Navio::Navio()
 	liberaNavegacao = false;
 	estadoMotor = false;
 	nivelVelocidade = 0;
-	velocidade = 0;
+	velocidadeKmHora = 0;
 	tempoHoras = 0;
 }
 
@@ -41,7 +41,7 @@ void Navio::definirRota()
 		cout << "Porto de Destino: ";
 		getline(cin,pDestino);
 		cout << "Distancia entre os Portos: ";
-		cin >> distancia;	
+		cin >> distanciaKm;	
 	}
 }
 
@@ -50,7 +50,7 @@ bool Navio::ligarMotores()
 	if(liberaNavegacao == true)
 	{
 		estadoMotor = true;
-		velocidade = 2;
+		velocidadeKmHora = 2;
 		return true;	
 	}
 	else return false;
@@ -67,64 +67,63 @@ int Navio::definirVelocidade()
 	cout << "5 -> 32 Km/h\n";
 	cout << "Digite: ";
 	cin >> nivelVelocidade;
-	float velocidade;
 	switch(nivelVelocidade)
 	{
 		case 0:
-			velocidade = 0;
+			return 0;
 			break;
 		case 1:
-			velocidade = 2;
+			return 2;
 			break;
 		case 2:
-			velocidade = 4;
+			return 4;
 			break;
 		case 3:
-			velocidade = 8;
+			return 8;
 			break;
 		case 4:
-			velocidade = 16;
+			return 16;
 			break;
 		case 5:
-			velocidade = 32;
+			return 32;
 			break;
 		 default:
 		 	cout << "\nNivel de velocidade invalido.\n";
-		 	velocidade = 0;
+		 	return velocidadeKmHora;
 			break;
 	}
-	return velocidade;
+	return velocidadeKmHora;
 }
 
 void Navio::navegar()
 {
-	if(distancia == 0.0)
+	if(distanciaKm == 0)
 	{
-		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distancia << " Km\n";
+		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distanciaKm << " Km\n";
 		cout << "\nChegou ao Destino.\n\n";
 	}	
 	else
 	{
-		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distancia << " Km\n";
+		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distanciaKm << " Km\n";
 		
-		if(distancia < velocidade)
+		if(distanciaKm < velocidadeKmHora)
 		{
 			cout << "\nReducao forcada da velocidade para 2 Km/h, destino iminente.\n";
-			if (distancia == 1) velocidade = 1;
-			else velocidade = 2;
+			if (distanciaKm == 1) velocidadeKmHora = 1;
+			else velocidadeKmHora = 2;
 		}
 		else
 		{
-			if(distancia >=32)
+			if(distanciaKm >=32)
 			{
 				int resp;
 				cout << "\nAlterar Nivel de Velocidade? [1 -> sim] : ";
 				cin >> resp;
-				if (resp == 1) velocidade = definirVelocidade();
+				if (resp == 1) velocidadeKmHora = definirVelocidade();
 			}
 		}
 		
-		distancia-=velocidade;
+		distanciaKm-=velocidadeKmHora;
 		tempoHoras++;
 		navegar();
 	}
@@ -132,7 +131,7 @@ void Navio::navegar()
 
 bool Navio::chegouDestino()
 {
-	if(distancia == 0) return true;
+	if(distanciaKm == 0) return true;
 	else return false;
 }
 

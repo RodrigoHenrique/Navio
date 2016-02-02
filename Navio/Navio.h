@@ -26,9 +26,9 @@ private:
 	
 	string pPartida;
 	string pDestino;
-	int distancia;
+	int distanciaKm;
 	int nivelVelocidade;
-	int velocidade;
+	int velocidadeKmHora;
 	int tempoHoras;
 };
 
