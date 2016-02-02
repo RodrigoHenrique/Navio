@@ -92,7 +92,6 @@ int Navio::definirVelocidade()
 		 	return velocidadeKmHora;
 			break;
 	}
-	return velocidadeKmHora;
 }
 
 void Navio::navegar()
