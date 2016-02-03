@@ -6,29 +6,59 @@
 using std::cout;
 using std::cin;
 
-Navio::Navio(string nome)
+
+
+int Navio::quantidadeNavios = 0;
+
+
+Navio::Navio(const string &nome)
 {
-	nomeNavio = nome;
-	liberaNavegacao = true;
-	estadoMotor = false;
-	nivelVelocidade = 0;
-	velocidadeKmHora = 0;
-	tempoHoras = 0;
+	this->nomeNavio = nome;
+	this->liberaNavegacao = true;
+	this->estadoMotor = false;
+	this->nivelVelocidade = 0;
+	this->velocidadeKmHora = 0;
+	this->tempoHoras = 0;
+    quantidadeNavios++;
 }
 
+Navio::Navio(const Navio &n)
+{
+    this->nomeNavio = n.nomeNavio;
+	this->liberaNavegacao = n.liberaNavegacao;
+	this->estadoMotor = n.estadoMotor;
+	this->nivelVelocidade = n.nivelVelocidade;
+	this->velocidadeKmHora = n.velocidadeKmHora;
+	this->tempoHoras = n.tempoHoras;
+    quantidadeNavios++;
+}
+
+Navio::Navio(const Navio &n,const string &nome)
+{
+    this->nomeNavio = nome;
+    this->liberaNavegacao = n.liberaNavegacao;
+	this->estadoMotor = n.estadoMotor;
+	this->nivelVelocidade = n.nivelVelocidade;
+	this->velocidadeKmHora = n.velocidadeKmHora;
+	this->tempoHoras = n.tempoHoras;
+    quantidadeNavios++;
+}
 Navio::Navio()
 {
-	nomeNavio = "Desconhecido";
-	liberaNavegacao = false;
-	estadoMotor = false;
-	nivelVelocidade = 0;
-	velocidadeKmHora = 0;
-	tempoHoras = 0;
+	this->nomeNavio = "Desconhecido";
+	this->liberaNavegacao = false;
+	this->estadoMotor = false;
+	this->nivelVelocidade = 0;
+	this->velocidadeKmHora = 0;
+	this->tempoHoras = 0;
+    quantidadeNavios++;
 }
 
 Navio::~Navio()
 {	
 }
+
+
 
 void Navio::definirRota()
 {
@@ -134,7 +164,7 @@ bool Navio::chegouDestino()
 	else return false;
 }
 
-void Navio::dadosdaViagem()
+void Navio::dadosdaViagem() const
 {
 	cout << "Dados da Viagem\n\n";
 	cout << "-- Nome do Navio: " << nomeNavio << "\n";

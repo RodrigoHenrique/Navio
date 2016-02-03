@@ -7,23 +7,24 @@ using std::string;
 class Navio
 {
 public:
-	Navio(string);
+	Navio(const string &);
+    Navio(const Navio &);
+    Navio(const Navio &,const string &);
 	Navio();
 	~Navio();
 	
+    void criarNavio();
 	void definirRota();
 	bool ligarMotores();
 	int definirVelocidade();
 	void navegar();
 	bool chegouDestino();
-	void dadosdaViagem();
-	
+	void dadosdaViagem() const;
 
 private:
 	string nomeNavio;
 	bool liberaNavegacao;
 	bool estadoMotor;
-	
 	string pPartida;
 	string pDestino;
 	int distanciaKm;

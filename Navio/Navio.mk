@@ -5,22 +5,22 @@
 ## Debug
 ProjectName            :=Navio
 ConfigurationName      :=Debug
-WorkspacePath          := "C:\Users\Rodrigo Henrique\Documents\ProgramacaoII"
-ProjectPath            := "C:\Users\Rodrigo Henrique\git\Navio\Navio"
+WorkspacePath          := "C:\Users\FACOMP\git\Navio"
+ProjectPath            := "C:\Users\FACOMP\git\Navio\Navio"
 IntermediateDirectory  :=./Debug
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=Rodrigo Henrique
-Date                   :=27/01/2016
+User                   :=FACOMP
+Date                   :=03/02/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
-LinkerName             :=g++
-SharedObjectLinkerName :=g++ -shared -fPIC
+LinkerName             :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe
+SharedObjectLinkerName :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe -shared -fPIC
 ObjectSuffix           :=.o
 DependSuffix           :=.o.d
-PreprocessSuffix       :=.o.i
-DebugSwitch            :=-gstab
+PreprocessSuffix       :=.i
+DebugSwitch            :=-g 
 IncludeSwitch          :=-I
 LibrarySwitch          :=-l
 OutputSwitch           :=-o 
@@ -31,7 +31,7 @@ OutputFile             :=$(IntermediateDirectory)/$(ProjectName)
 Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
-PreprocessOnlySwitch   :=-E 
+PreprocessOnlySwitch   :=-E
 ObjectsFileList        :="Navio.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=makedir
@@ -49,13 +49,13 @@ LibPath                := $(LibraryPathSwitch).
 ## Common variables
 ## AR, CXX, CC, AS, CXXFLAGS and CFLAGS can be overriden using an environment variables
 ##
-AR       := ar rcus
-CXX      := g++
-CC       := gcc
+AR       := C:/cygwin64/bin/x86_64-pc-cygwin-ar.exe rcu
+CXX      := C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe
+CC       := C:/cygwin64/bin/x86_64-pc-cygwin-gcc.exe
 CXXFLAGS :=  -g -O0 -Wall $(Preprocessors)
 CFLAGS   :=  -g -O0 -Wall $(Preprocessors)
 ASFLAGS  := 
-AS       := as
+AS       := C:/cygwin64/bin/x86_64-pc-cygwin-as.exe
 
 
 ##
@@ -94,7 +94,7 @@ PreBuild:
 ## Objects
 ##
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Rodrigo Henrique/git/Navio/Navio/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/Navio/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/main.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/main.cpp$(DependSuffix) -MM "main.cpp"
 
@@ -102,7 +102,7 @@ $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
 
 $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix): Navio.cpp $(IntermediateDirectory)/Navio.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Rodrigo Henrique/git/Navio/Navio/Navio.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IncludePath)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/Navio/Navio.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/Navio.cpp$(DependSuffix): Navio.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Navio.cpp$(DependSuffix) -MM "Navio.cpp"
 
