@@ -13,13 +13,17 @@ public:
 	Navio();
 	~Navio();
 	
-    void criarNavio();
 	void definirRota();
 	bool ligarMotores();
+	bool ligarMotores(const Navio &);
 	int definirVelocidade();
+	void pilotoAutomatico();
+	void pilotoManual();
 	void navegar();
+	void operar();
 	bool chegouDestino();
 	void dadosdaViagem() const;
+	bool tempestade(const Navio &);
 
 private:
 	string nomeNavio;
@@ -28,9 +32,12 @@ private:
 	string pPartida;
 	string pDestino;
 	int distanciaKm;
+	int distanciaKmAuto;
+	bool modoPilotoAuto;
 	int nivelVelocidade;
 	int velocidadeKmHora;
 	int tempoHoras;
+	static bool cancelaRota;
 };
 
 #endif // NAVIO_H
