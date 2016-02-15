@@ -9,6 +9,7 @@ using std::cin;
 
 
 
+
 Navio::Navio(const string &nome)
 {
 	this->nomeNavio = nome;
@@ -210,7 +211,7 @@ void Navio::pilotoManual()
 				{
 					cout << "\nPiloto Automatico LIGADO.\n";
 					modoPilotoAuto = true;
-					cout << "\nA que distância do destino desativar o modo automatico? : ";
+					cout << "\nA que distÃ¢ncia do destino desativar o modo automatico? : ";
 					cin >> distanciaKmAuto;
 					system("cls");
 					Sleep(500);
@@ -265,7 +266,7 @@ bool Navio::chegouDestino()
 	{
 		estadoMotor = false;
 		int resp;
-		cout << "\nHá tempestade deste lado do mar? [1-sim] : ";
+		cout << "\nHÃ¡ tempestade deste lado do mar? [1-sim] : ";
 		cin >> resp;
 		if(resp == 1) cancelaRota = true;
 		else cancelaRota = false;
