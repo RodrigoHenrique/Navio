@@ -3,16 +3,17 @@
 #include <iostream>
 #include <windows.h>
 #include <stdlib.h>
+#include "Data.h"
 
 using std::cout;
 using std::cin;
 
 
 
-
-Navio::Navio(const string &nome)
+Navio::Navio(const string &nome,const Data &date)
 {
 	this->nomeNavio = nome;
+    this->dataPartida = date;
 	this->liberaNavegacao = true;
 	this->estadoMotor = false;
 	this->nivelVelocidade = 0;
@@ -23,6 +24,7 @@ Navio::Navio(const string &nome)
 Navio::Navio(const Navio &n)
 {
     this->nomeNavio = n.nomeNavio;
+    this->dataPartida = n.dataPartida;
 	this->liberaNavegacao = n.liberaNavegacao;
 	this->estadoMotor = n.estadoMotor;
 	this->nivelVelocidade = n.nivelVelocidade;
@@ -33,6 +35,7 @@ Navio::Navio(const Navio &n)
 Navio::Navio(const Navio &n,const string &nome)
 {
     this->nomeNavio = nome;
+    this->dataPartida = n.dataPartida;
     this->pPartida = n.pPartida;
     this->pDestino = n.pDestino;
     this->distanciaKm = n.distanciaKm;
@@ -45,6 +48,8 @@ Navio::Navio(const Navio &n,const string &nome)
 Navio::Navio()
 {
 	this->nomeNavio = "Desconhecido";
+    Data data;
+    this->dataPartida = data;
 	this->liberaNavegacao = false;
 	this->estadoMotor = false;
 	this->nivelVelocidade = 0;
@@ -54,6 +59,16 @@ Navio::Navio()
 
 Navio::~Navio()
 {	
+}
+
+void Navio::implementaNaviosAutorizados()
+{
+    qdeNaviosAutorizados++;
+}
+
+void Navio::imprimeQdeNaviosAutorizados()
+{
+    cout << qdeNaviosAutorizados;
 }
 
 void Navio::definirRota()
@@ -84,6 +99,7 @@ bool Navio::ligarMotores()
 		estadoMotor = true;
 		velocidadeKmHora = 2;
 		modoPilotoAuto = false;
+        implementaNaviosAutorizados();
 		return true;	
 	}
 	else

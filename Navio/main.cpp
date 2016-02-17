@@ -6,10 +6,12 @@ using std::cout;
 using std::cin;
 
 bool Navio::cancelaRota = false;
+int Navio::qdeNaviosAutorizados = 0;
 
 int main(int argc, char **argv)
 {
-	Navio navio1("Balerion");
+    Data date(10,10,2010);
+	Navio navio1("Balerion",date);
 	navio1.definirRota();
 	
 	Navio navio2(navio1,"Meraxes");
@@ -34,6 +36,10 @@ int main(int argc, char **argv)
 		navio3.navegar();
 		if(navio3.chegouDestino()) navio3.dadosdaViagem();
 	}
-	
+    
+    cout << "Qde de navios autorizados a viajar: ";
+    navio1.imprimeQdeNaviosAutorizados();
+    cout << "/n";
+    
 	return 0;
 }
