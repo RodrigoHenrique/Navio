@@ -9,6 +9,7 @@
 using std::cout;
 using std::cin;
 using std::string;
+using std::getline;
 
 const int Navio::capacidadeMaxima = 100;
 
@@ -23,6 +24,7 @@ Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto 
 	this->nivelVelocidade = 0;
 	this->velocidadeKmHora = 0;
 	this->tempoHoras = 0;
+    tripulacao = 0;
 }
 
 Navio::Navio(const Navio &n)
@@ -36,6 +38,8 @@ Navio::Navio(const Navio &n)
 	this->nivelVelocidade = 0;
 	this->velocidadeKmHora = 0;
 	this->tempoHoras = 0;
+    tripulacao = 0;
+    nTripulantes = 0;
 }
 
 Navio::Navio(const Navio &n,const string &nome,const Data &date)
@@ -50,6 +54,8 @@ Navio::Navio(const Navio &n,const string &nome,const Data &date)
 	this->nivelVelocidade = 0;
 	this->velocidadeKmHora = 0;
 	this->tempoHoras = 0;
+    tripulacao = 0;
+    nTripulantes = 0;
 }
 Navio::Navio()
 {
@@ -61,6 +67,8 @@ Navio::Navio()
 	this->nivelVelocidade = 0;
 	this->velocidadeKmHora = 0;
 	this->tempoHoras = 0;
+    tripulacao = 0;
+    nTripulantes = 0;
 }
 
 Navio::~Navio()
@@ -80,6 +88,18 @@ void Navio::definirRota()
 		cin >> km;
 		this->distanciaKm = km;
 		this->distanciaKmEntrePortos = km;
+        
+        do
+        {
+            int i;
+            cout << "\nAdicionar oficial a tripulacao? <1 - sim> : ";
+            cin >> i;
+            if(i != 1) break;
+            string nTrip;
+            cout << "\nTripulante : ";
+            cin >> nTrip;
+            adicionarTripulacao(nTrip);
+        }while(1);
 		system("cls");
 	}
 }
@@ -339,4 +359,32 @@ bool Navio::embarque(int &passageiros)
 string Navio::getPortoPartida() const
 {
 	return this->pPartida.getNomePorto();
+}
+
+void Navio::adicionarTripulacao(const string &cargoTripulante)
+{
+    if(liberaNavegacao == true)
+    {
+        if(nTripulantes !=0)
+        {
+            string *aux = new string[nTripulantes];
+            
+            for(int i = 0;i < nTripulantes;i++) aux[i] = tripulacao[i];
+            
+            delete [] tripulacao;
+            
+            tripulacao = new string[++nTripulantes];
+            
+            for(int i = 0;i < nTripulantes - 1;i++) tripulacao[i] = aux[i];
+            
+            tripulacao[nTripulantes - 1] = cargoTripulante;
+            
+            delete [] aux;
+        }
+        else
+        {
+            tripulacao[nTripulantes] = cargoTripulante;
+            nTripulantes++;
+        }
+    }
 }

@@ -29,6 +29,7 @@ public:
 	bool tempestade(const Navio &);
 	string getPortoPartida() const;
 	bool embarque(int &);
+    void adicionarTripulacao(const string &);
     
     const static int capacidadeMaxima;
 
@@ -49,6 +50,8 @@ private:
 	bool cancelaRota;
 	
 	int passageirosABordo;
+    string *tripulacao;
+    int nTripulantes;
 };
 
 
