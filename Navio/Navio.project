@@ -96,5 +96,7 @@
     <File Name="Navio.cpp"/>
     <File Name="Data.h"/>
     <File Name="Data.cpp"/>
+    <File Name="Porto.h"/>
+    <File Name="Porto.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

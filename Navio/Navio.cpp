@@ -4,15 +4,18 @@
 #include <windows.h>
 #include <stdlib.h>
 #include "Data.h"
+#include "Porto.h"
 
 using std::cout;
 using std::cin;
+using std::string;
 
 
-
-Navio::Navio(const string &nome,const Data &date)
+Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
 {
 	this->nomeNavio = nome;
+	this->pPartida = port1;
+	this->pDestino = port2;
     this->dataPartida = date;
 	this->liberaNavegacao = true;
 	this->estadoMotor = false;
@@ -25,25 +28,27 @@ Navio::Navio(const Navio &n)
 {
     this->nomeNavio = n.nomeNavio;
     this->dataPartida = n.dataPartida;
+	this->pPartida = n.pPartida;
+	this->pDestino = n.pDestino;
 	this->liberaNavegacao = n.liberaNavegacao;
-	this->estadoMotor = n.estadoMotor;
-	this->nivelVelocidade = n.nivelVelocidade;
-	this->velocidadeKmHora = n.velocidadeKmHora;
-	this->tempoHoras = n.tempoHoras;
+	this->estadoMotor = false;
+	this->nivelVelocidade = 0;
+	this->velocidadeKmHora = 0;
+	this->tempoHoras = 0;
 }
 
-Navio::Navio(const Navio &n,const string &nome)
+Navio::Navio(const Navio &n,const string &nome,const Data &date)
 {
     this->nomeNavio = nome;
-    this->dataPartida = n.dataPartida;
+    this->dataPartida = date;
     this->pPartida = n.pPartida;
     this->pDestino = n.pDestino;
     this->distanciaKm = n.distanciaKm;
     this->liberaNavegacao = n.liberaNavegacao;
-	this->estadoMotor = n.estadoMotor;
-	this->nivelVelocidade = n.nivelVelocidade;
-	this->velocidadeKmHora = n.velocidadeKmHora;
-	this->tempoHoras = n.tempoHoras;
+	this->estadoMotor = false;
+	this->nivelVelocidade = 0;
+	this->velocidadeKmHora = 0;
+	this->tempoHoras = 0;
 }
 Navio::Navio()
 {
@@ -61,32 +66,17 @@ Navio::~Navio()
 {	
 }
 
-void Navio::implementaNaviosAutorizados()
-{
-    qdeNaviosAutorizados++;
-}
-
-void Navio::imprimeQdeNaviosAutorizados()
-{
-    cout << qdeNaviosAutorizados;
-}
-
 void Navio::definirRota()
 {
 	cout << "\nNavio: " << nomeNavio << "\n";
 	if(nomeNavio == "Desconhecido") cout << "Navio desautorizado a viajar.\n\n";
 	else
 	{
-		string p1,p2;
 		int km;
-		cout << "Porto de Partida: ";
-		getline(cin,p1);
-		cout << "Porto de Destino: ";
-		getline(cin,p2);
-		cout << "Distancia entre os Portos: ";
+		cout << "Porto de Partida: " << pPartida.getNomePorto();
+		cout << "s\nPorto de Destino: " << pDestino.getNomePorto();
+		cout << "\nDistancia entre os Portos: ";
 		cin >> km;
-		this->pPartida = p1;
-		this->pDestino = p2;
 		this->distanciaKm = km;
 		system("cls");
 	}
@@ -99,7 +89,6 @@ bool Navio::ligarMotores()
 		estadoMotor = true;
 		velocidadeKmHora = 2;
 		modoPilotoAuto = false;
-        implementaNaviosAutorizados();
 		return true;	
 	}
 	else
@@ -111,7 +100,12 @@ bool Navio::ligarMotores()
 
 bool Navio::ligarMotores(const Navio &n)
 {
-	if(tempestade(n)) cout << "\nHa tempestade relatada pelo Navio que possui o mesmo destino que este.\n\nViagem Impossibilitada.\n\n";
+	if(tempestade(n))
+	{
+		cout << "Navio: " << nomeNavio;
+		Sleep(500);
+		cout << "\nHa tempestade relatada pelo Navio que possui o mesmo destino que este.\n\nViagem Impossibilitada.\n\n";
+	}
 	else
 	{
 		if(liberaNavegacao)
@@ -253,6 +247,7 @@ void Navio::navegar()
 	if(distanciaKm == 0)
 	{
 		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distanciaKm << " Km\n";
+		system("pause");
 		Sleep(1000);
 		system("cls");
 		cout << "\nChegou ao Destino.\n\n";
@@ -282,7 +277,7 @@ bool Navio::chegouDestino()
 	{
 		estadoMotor = false;
 		int resp;
-		cout << "\nHá tempestade deste lado do mar? [1-sim] : ";
+		cout << "\nHa tempestade deste lado do mar? [1-sim] : ";
 		cin >> resp;
 		if(resp == 1) cancelaRota = true;
 		else cancelaRota = false;
@@ -297,9 +292,11 @@ void Navio::dadosdaViagem() const
 {
 	cout << "Dados da Viagem\n\n";
 	cout << "-- Nome do Navio: " << nomeNavio << "\n";
-	cout << "-- Porto de Partida: " << pPartida << "\n";
-	cout << "-- Porto de Destino: " << pDestino << "\n";
-	cout << "-- Tempo de Viagem [/hrs]: " << tempoHoras << "\n";
+	cout << "\n-- Porto de Partida: " << pPartida.getNomePorto();
+	cout << "\n-- Porto de Destino: " << pDestino.getNomePorto();
+	cout << "\n-- Tempo de Viagem [/hrs]: " << tempoHoras << "\n";
+	cout << "-- Partida: ";
+	dataPartida.imprimeData();
 	Sleep(1000);
 	system("pause");
 	system("cls");
@@ -307,6 +304,6 @@ void Navio::dadosdaViagem() const
 
 bool Navio::tempestade(const Navio &n)
 {
-	if(cancelaRota&&(this->pDestino == n.pDestino)) return true;
+	if(n.cancelaRota&&(this->pDestino.getNomePorto() == n.pDestino.getNomePorto())) return true;
 	else return false;
 }

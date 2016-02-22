@@ -1,23 +1,26 @@
 #include <iostream>
 #include <string>
 #include "Navio.h"
+#include "Data.h"
+#include "Porto.h"
 
 using std::cout;
 using std::cin;
 
-bool Navio::cancelaRota = false;
-int Navio::qdeNaviosAutorizados = 0;
 
 int main(int argc, char **argv)
 {
-    Data date(10,10,2010);
-	Navio navio1("Balerion",date);
-	navio1.definirRota();
+    Data date1(10,10,2010);
+    
+	Porto partida("Mereen");
+	Porto destino("Porto Real");
 	
-	Navio navio2(navio1,"Meraxes");
-
-	Navio navio3(navio2,"Vhagar");
-
+	Navio navio1("Balerion",date1,partida.getNomePorto(),destino.getNomePorto());
+	
+	navio1.definirRota();
+	Data date2(15,10,2010);
+	
+	Navio navio2(navio1,"Meraxes",date2);
 	
 	if(navio1.ligarMotores())
 	{
@@ -30,16 +33,6 @@ int main(int argc, char **argv)
 		navio2.navegar();
 		if(navio2.chegouDestino()) navio2.dadosdaViagem();
 	}
-	
-	if(navio3.ligarMotores(navio2))
-	{
-		navio3.navegar();
-		if(navio3.chegouDestino()) navio3.dadosdaViagem();
-	}
-    
-    cout << "Qde de navios autorizados a viajar: ";
-    navio1.imprimeQdeNaviosAutorizados();
-    cout << "/n";
-    
+
 	return 0;
 }

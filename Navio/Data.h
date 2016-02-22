@@ -13,8 +13,8 @@ private:
     int dia;
     int mes;
     int ano;
-    int checarDia(int) const;
-    
+    int checarDia(int,int,int) const;
+    static int diasPorMes[];
 
 };
 
