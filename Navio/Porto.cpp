@@ -10,7 +10,7 @@ Porto::Porto(const string &Porto)
 
 Porto::Porto()
 {
-	
+	this->nomePorto = "Porto Desconhecido";
 }
 
 Porto::~Porto()

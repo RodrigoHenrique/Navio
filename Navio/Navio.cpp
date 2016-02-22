@@ -246,6 +246,7 @@ void Navio::navegar()
 {
 	if(distanciaKm == 0)
 	{
+		cout << "--" << nomeNavio << "\n";
 		cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distanciaKm << " Km\n";
 		system("pause");
 		Sleep(1000);
@@ -264,6 +265,7 @@ void Navio::navegar()
 
 void Navio::operar()
 {
+	cout << "--" << nomeNavio << "\n";
 	cout << "\n-Horas passadas: " << tempoHoras << "\n-Distancia do destino: " << distanciaKm << " Km\n";
 	pilotoAutomatico();
 	pilotoManual();

@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 	Porto partida("Mereen");
 	Porto destino("Porto Real");
 	
-	Navio navio1("Balerion",date1,partida.getNomePorto(),destino.getNomePorto());
+	Navio navio1("Balerion",date1,partida,destino);
 	
 	navio1.definirRota();
 	Data date2(15,10,2010);
