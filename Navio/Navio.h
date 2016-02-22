@@ -27,9 +27,10 @@ public:
 	bool chegouDestino();
 	static const void dadosdaViagem(const Navio &);
 	bool tempestade(const Navio &);
-	const static int capacidadeMaxima;
 	string getPortoPartida() const;
 	bool embarque(int &);
+    
+    const static int capacidadeMaxima;
 
 private:
     Data dataPartida; 
