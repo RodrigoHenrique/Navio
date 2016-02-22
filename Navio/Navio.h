@@ -1,3 +1,4 @@
+
 #ifndef NAVIO_H
 #define NAVIO_H
 #include <string>
@@ -24,7 +25,7 @@ public:
 	void navegar();
 	void operar();
 	bool chegouDestino();
-	void dadosdaViagem() const;
+	static const void dadosdaViagem(const Navio &);
 	bool tempestade(const Navio &);
 	const static int capacidadeMaxima;
 	string getPortoPartida() const;

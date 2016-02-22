@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 		if(navio1.ligarMotores())
 		{
 			navio1.navegar();
-			if(navio1.chegouDestino()) navio1.dadosdaViagem();
+			if(navio1.chegouDestino()) Navio::dadosdaViagem(navio1);
 		}
 	}
 	
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
 		if(navio2.ligarMotores())
 		{
 			navio2.navegar();
-			if(navio2.chegouDestino()) navio2.dadosdaViagem();
+			if(navio2.chegouDestino()) Navio::dadosdaViagem(navio2);
 		}
 	}
 

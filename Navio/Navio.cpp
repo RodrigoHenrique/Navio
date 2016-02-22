@@ -292,16 +292,16 @@ bool Navio::chegouDestino()
 	else return false;
 }
 
-void Navio::dadosdaViagem() const
+const void Navio::dadosdaViagem(const Navio &n)
 {
 	cout << "Dados da Viagem\n\n";
-	cout << "-- Nome do Navio: " << nomeNavio << "\n";
-	cout << "-- Quantidade de Passageiros a bordo: " << passageirosABordo;
-	cout << "\n-- Porto de Partida: " << pPartida.getNomePorto();
-	cout << "\n-- Porto de Destino: " << pDestino.getNomePorto();
-	cout << "\n-- Tempo de Viagem [/hrs]: " << tempoHoras << "\n";
+	cout << "-- Nome do Navio: " << n.nomeNavio << "\n";
+	cout << "-- Quantidade de Passageiros a bordo: " << n.passageirosABordo;
+	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
+	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
+	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
 	cout << "-- Partida: ";
-	dataPartida.imprimeData();
+	n.dataPartida.imprimeData();
 	Sleep(1000);
 	system("pause");
 	system("cls");
@@ -328,7 +328,7 @@ bool Navio::embarque(int &passageiros)
 			cin >> passageirosASubir;
 			if(passageirosASubir > passageiros) cout << "Ha menos passageiros no Porto.\n";
 		}while(passageirosASubir > passageiros);
-		system("cls");
+		system("CLS");
 		Sleep(500);
 		passageiros -= passageirosASubir;
 		passageirosABordo = passageirosASubir;
