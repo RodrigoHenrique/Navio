@@ -26,6 +26,9 @@ public:
 	bool chegouDestino();
 	void dadosdaViagem() const;
 	bool tempestade(const Navio &);
+	const static int capacidadeMaxima;
+	string getPortoPartida() const;
+	bool embarque(int &);
 
 private:
     Data dataPartida; 
@@ -35,12 +38,16 @@ private:
 	Porto pPartida;
 	Porto pDestino;
 	int distanciaKm;
+	int distanciaKmEntrePortos;
 	int distanciaKmAuto;
 	bool modoPilotoAuto;
 	int nivelVelocidade;
 	int velocidadeKmHora;
 	int tempoHoras;
 	bool cancelaRota;
+	
+	int passageirosABordo;
 };
+
 
 #endif // NAVIO_H

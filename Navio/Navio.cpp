@@ -10,6 +10,7 @@ using std::cout;
 using std::cin;
 using std::string;
 
+const int Navio::capacidadeMaxima = 100;
 
 Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
 {
@@ -43,7 +44,7 @@ Navio::Navio(const Navio &n,const string &nome,const Data &date)
     this->dataPartida = date;
     this->pPartida = n.pPartida;
     this->pDestino = n.pDestino;
-    this->distanciaKm = n.distanciaKm;
+    this->distanciaKm = n.distanciaKmEntrePortos;
     this->liberaNavegacao = n.liberaNavegacao;
 	this->estadoMotor = false;
 	this->nivelVelocidade = 0;
@@ -74,10 +75,11 @@ void Navio::definirRota()
 	{
 		int km;
 		cout << "Porto de Partida: " << pPartida.getNomePorto();
-		cout << "s\nPorto de Destino: " << pDestino.getNomePorto();
+		cout << "\nPorto de Destino: " << pDestino.getNomePorto();
 		cout << "\nDistancia entre os Portos: ";
 		cin >> km;
 		this->distanciaKm = km;
+		this->distanciaKmEntrePortos = km;
 		system("cls");
 	}
 }
@@ -221,7 +223,7 @@ void Navio::pilotoManual()
 				{
 					cout << "\nPiloto Automatico LIGADO.\n";
 					modoPilotoAuto = true;
-					cout << "\nA que distância do destino desativar o modo automatico? : ";
+					cout << "\nA que distancia do destino desativar o modo automatico? : ";
 					cin >> distanciaKmAuto;
 					system("cls");
 					Sleep(500);
@@ -294,6 +296,7 @@ void Navio::dadosdaViagem() const
 {
 	cout << "Dados da Viagem\n\n";
 	cout << "-- Nome do Navio: " << nomeNavio << "\n";
+	cout << "-- Quantidade de Passageiros a bordo: " << passageirosABordo;
 	cout << "\n-- Porto de Partida: " << pPartida.getNomePorto();
 	cout << "\n-- Porto de Destino: " << pDestino.getNomePorto();
 	cout << "\n-- Tempo de Viagem [/hrs]: " << tempoHoras << "\n";
@@ -308,4 +311,32 @@ bool Navio::tempestade(const Navio &n)
 {
 	if(n.cancelaRota&&(this->pDestino.getNomePorto() == n.pDestino.getNomePorto())) return true;
 	else return false;
+}
+
+bool Navio::embarque(int &passageiros)
+{
+	if(passageiros > capacidadeMaxima) return false;
+	else
+	{
+		int passageirosASubir;
+		do
+		{
+			system("cls");
+			cout << "- " << nomeNavio;
+			cout << "\n- Passageiros no Porto: " << passageiros;
+			cout << "\n-- Ha quantos passageiros a subir a bordo? : ";
+			cin >> passageirosASubir;
+			if(passageirosASubir > passageiros) cout << "Ha menos passageiros no Porto.\n";
+		}while(passageirosASubir > passageiros);
+		system("cls");
+		Sleep(500);
+		passageiros -= passageirosASubir;
+		passageirosABordo = passageirosASubir;
+		return true;
+	} 
+}
+
+string Navio::getPortoPartida() const
+{
+	return this->pPartida.getNomePorto();
 }

@@ -17,6 +17,7 @@ public:
 private:
 	string nomePorto;
 	
+	
 };
 
 #endif // PORTO_H
