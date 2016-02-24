@@ -8,6 +8,7 @@
 
 using std::cout;
 using std::cin;
+using std::endl;
 using std::string;
 using std::getline;
 
@@ -89,14 +90,14 @@ void Navio::definirRota()
 		cin >> km;
 		this->distanciaKm = km;
 		this->distanciaKmEntrePortos = km;
-        
+        string nTrip;
         do
         {
             int i;
             cout << "\nAdicionar oficial a tripulacao? <1 - sim> : ";
             cin >> i;
             if(i != 1) break;
-            string nTrip;
+            
             cout << "\nTripulante : ";
             cin >> nTrip;
             adicionarTripulacao(nTrip);
@@ -317,7 +318,11 @@ const void Navio::dadosdaViagem(const Navio &n)
 {
 	cout << "Dados da Viagem\n\n";
 	cout << "-- Nome do Navio: " << n.nomeNavio << "\n";
-	cout << "-- Quantidade de Passageiros a bordo: " << n.passageirosABordo;
+    cout << "-- Tripulacao:\n\n";
+    if(n.nTripulantes != 0) for(int i=0;i<n.nTripulantes;i++) cout << "--------- " << n.tripulacao[i] << "\n";
+    else cout << "--------- Sem Tripulacao.\n";
+    
+	cout << "\n-- Quantidade de Passageiros a bordo: " << n.passageirosABordo;
 	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
 	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
 	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
@@ -368,37 +373,23 @@ void Navio::adicionarTripulacao(const string &cargoTripulante)
     {
         if(nTripulantes !=0)
         {
-        	cout << "1\n";
             string *aux = new string[nTripulantes];
-            cout << "2\n";
             int i;
             for(i = 0;i < nTripulantes;i++)
 			{
 				aux[i] = tripulacao[i];
-				cout << "laco\n";		
 			}
-            cout << "3\n";
             delete [] tripulacao;
-            cout << "4\n";
             nTripulantes++;
             tripulacao = new string[nTripulantes];
-            cout << "5\n";
             for(int i = 0;i < nTripulantes - 1;i++) tripulacao[i] = aux[i];
-            cout << "6\n";
             tripulacao[nTripulantes - 1] = cargoTripulante;
-            cout << "7\n";
             delete [] aux;
-            cout << "8\n";
         }
         else
         {
-        	cout << "1\n";
-            tripulacao = new string;
-            cout << "2\n";
+            tripulacao = new string[++nTripulantes];
             tripulacao[0] = cargoTripulante;
-            cout << "3\n";
-            nTripulantes++;
-            cout << "4\n";
         }
     }
 }

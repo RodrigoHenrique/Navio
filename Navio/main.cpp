@@ -37,7 +37,7 @@ int main(int argc, char **argv)
 	
 	if(navio2.embarque(p))
 	{
-		if(navio2.ligarMotores())
+		if(navio2.ligarMotores(navio1))
 		{
 			navio2.navegar();
 			if(navio2.chegouDestino()) Navio::dadosdaViagem(navio2);
