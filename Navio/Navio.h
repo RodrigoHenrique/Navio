@@ -1,15 +1,23 @@
 
 #ifndef NAVIO_H
 #define NAVIO_H
+#include <iostream>
 #include <string>
 #include "Data.h"
 #include "Porto.h"
 
 using std::string;
+using std::ostream;
 
 class Navio
 {
+    friend ostream &operator<<(ostream &,const Navio &);
+    
 public:
+
+    const Navio &operator=(const Navio &);
+    bool operator==(const Navio &) const;
+    
 	Navio(const string &,const Data &,const Porto &,const Porto &);
     Navio(const Navio &);
     Navio(const Navio &,const string &,const Data &);

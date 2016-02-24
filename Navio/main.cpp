@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	Porto partida2("Mereen");
 	
 	Navio navio1("Balerion",date1,partida1,destino);
-	navio1.definirRota();
+	/*navio1.definirRota();
 	
 	int p = 100;
 	if(navio1.embarque(p))
@@ -28,11 +28,21 @@ int main(int argc, char **argv)
 		}
 	}
 	
-	
+	*/
 	Data date2(15,10,2010);
 	
 	Navio navio2(navio1,"Meraxes",date2);
-	
+    
+    cout << navio1 << "\n";
+    cout << navio2 << "\n";
+    
+    navio2 = navio1;
+    
+    cout << navio1 << "\n";
+    cout << navio1 << "\n";
+    
+    if(navio1 == navio2) cout << navio2 << "\n";
+	/*
 	if(navio1.getPortoPartida() != navio2.getPortoPartida()) navio2.definirRota();
 	
 	if(navio2.embarque(p))
@@ -42,7 +52,7 @@ int main(int argc, char **argv)
 			navio2.navegar();
 			if(navio2.chegouDestino()) Navio::dadosdaViagem(navio2);
 		}
-	}
+	}*/
 
 	return 0;
 }

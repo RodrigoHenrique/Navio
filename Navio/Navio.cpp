@@ -14,6 +14,25 @@ using std::getline;
 
 const int Navio::capacidadeMaxima = 100;
 
+bool Navio::operator== (const Navio &navioCompara) const
+{
+    if(navioCompara.nomeNavio != nomeNavio) return false;
+    if(navioCompara.getPortoPartida() != getPortoPartida()) return false;
+    return true;
+}
+
+ostream &operator<<(ostream &output,const Navio &navioImprime)
+{
+    output << "NOME DO NAVIO: " << navioImprime.nomeNavio << "\nPORTO DE PARTIDA: " << navioImprime.getPortoPartida();
+    return output;
+}
+
+const Navio & Navio::operator=(const Navio &navioAtrib)
+{
+    nomeNavio = navioAtrib.nomeNavio;
+    pPartida = navioAtrib.pPartida;
+}
+
 Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
 {
 	this->nomeNavio = nome;
@@ -74,7 +93,8 @@ Navio::Navio()
 }
 
 Navio::~Navio()
-{	
+{
+    delete [] tripulacao;
 }
 
 void Navio::definirRota()
