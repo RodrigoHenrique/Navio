@@ -25,6 +25,7 @@ Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto 
 	this->velocidadeKmHora = 0;
 	this->tempoHoras = 0;
     tripulacao = 0;
+    nTripulantes = 0;
 }
 
 Navio::Navio(const Navio &n)
@@ -367,24 +368,37 @@ void Navio::adicionarTripulacao(const string &cargoTripulante)
     {
         if(nTripulantes !=0)
         {
+        	cout << "1\n";
             string *aux = new string[nTripulantes];
-            
-            for(int i = 0;i < nTripulantes;i++) aux[i] = tripulacao[i];
-            
+            cout << "2\n";
+            int i;
+            for(i = 0;i < nTripulantes;i++)
+			{
+				aux[i] = tripulacao[i];
+				cout << "laco\n";		
+			}
+            cout << "3\n";
             delete [] tripulacao;
-            
-            tripulacao = new string[++nTripulantes];
-            
+            cout << "4\n";
+            nTripulantes++;
+            tripulacao = new string[nTripulantes];
+            cout << "5\n";
             for(int i = 0;i < nTripulantes - 1;i++) tripulacao[i] = aux[i];
-            
+            cout << "6\n";
             tripulacao[nTripulantes - 1] = cargoTripulante;
-            
+            cout << "7\n";
             delete [] aux;
+            cout << "8\n";
         }
         else
         {
-            tripulacao[nTripulantes] = cargoTripulante;
+        	cout << "1\n";
+            tripulacao = new string;
+            cout << "2\n";
+            tripulacao[0] = cargoTripulante;
+            cout << "3\n";
             nTripulantes++;
+            cout << "4\n";
         }
     }
 }
