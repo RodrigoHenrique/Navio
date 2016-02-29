@@ -6,6 +6,9 @@ class Data
 public:
     Data(int = 1,int = 1,int = 1900);
     ~Data();
+    const Data &operator=(const Data &);
+    bool operator==(const Data &) const;
+    bool operator!=(const Data &) const;
     
     void imprimeData() const;
     

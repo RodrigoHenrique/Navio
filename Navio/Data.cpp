@@ -5,6 +5,29 @@ using std::cout;
 
 int Data::diasPorMes[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
 
+const Data & Data::operator=(const Data &dataAtrib)
+{
+    dia = dataAtrib.dia;
+    mes = dataAtrib.mes;
+    ano = dataAtrib.ano;
+}
+
+bool Data::operator== (const Data &dataCompara) const
+{
+    if(dia != dataCompara.dia) return false;
+    if(mes != dataCompara.mes) return false;
+    if(ano != dataCompara.ano) return false;
+    return true;
+}
+
+bool Data::operator!= (const Data &dataCompara) const
+{
+    if(dia == dataCompara.dia) return false;
+    if(mes == dataCompara.mes) return false;
+    if(ano == dataCompara.ano) return false;
+    return true;
+}
+
 Data::Data(int dia, int mes, int ano)
 {
 
