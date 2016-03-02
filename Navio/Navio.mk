@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FACOMP
-Date                   :=29/02/2016
+Date                   :=02/03/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe
 SharedObjectLinkerName :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/cygwin64/bin/x86_64-pc-cygwin-as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) 
 
 
 
@@ -124,6 +124,14 @@ $(IntermediateDirectory)/Porto.cpp$(DependSuffix): Porto.cpp
 
 $(IntermediateDirectory)/Porto.cpp$(PreprocessSuffix): Porto.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Porto.cpp$(PreprocessSuffix) "Porto.cpp"
+
+$(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix): Cruzeiro.cpp $(IntermediateDirectory)/Cruzeiro.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/Navio/Cruzeiro.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Cruzeiro.cpp$(DependSuffix): Cruzeiro.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Cruzeiro.cpp$(DependSuffix) -MM "Cruzeiro.cpp"
+
+$(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix): Cruzeiro.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix) "Cruzeiro.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

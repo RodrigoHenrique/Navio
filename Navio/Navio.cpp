@@ -398,28 +398,7 @@ bool Navio::tempestade(const Navio &n)
 	else return false;
 }
 
-bool Navio::embarque(int &passageiros)
-{
-	if(passageiros > capacidadeMaxima) return false;
-	else
-	{
-		int passageirosASubir;
-		do
-		{
-			system("cls");
-			cout << "- " << nomeNavio;
-			cout << "\n- Passageiros no Porto: " << passageiros;
-			cout << "\n-- Ha quantos passageiros a subir a bordo? : ";
-			cin >> passageirosASubir;
-			if(passageirosASubir > passageiros) cout << "Ha menos passageiros no Porto.\n";
-		}while(passageirosASubir > passageiros);
-		system("CLS");
-		Sleep(500);
-		passageiros -= passageirosASubir;
-		passageirosABordo = passageirosASubir;
-		return true;
-	} 
-}
+
 
 string Navio::getPortoPartida() const
 {
@@ -451,4 +430,9 @@ void Navio::adicionarTripulacao(const string &cargoTripulante)
             tripulacao[0] = cargoTripulante;
         }
     }
+}
+
+string Navio::getNomeNavio()
+{
+    return this->nomeNavio;
 }

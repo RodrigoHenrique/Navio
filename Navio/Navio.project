@@ -98,5 +98,7 @@
     <File Name="Data.cpp"/>
     <File Name="Porto.h"/>
     <File Name="Porto.cpp"/>
+    <File Name="Cruzeiro.h"/>
+    <File Name="Cruzeiro.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

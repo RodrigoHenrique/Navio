@@ -1,7 +1,11 @@
-Debug/main.cpp.o: main.cpp Navio.h Data.h Porto.h
+Debug/main.cpp.o: main.cpp Navio.h Data.h Porto.h Cruzeiro.h Navio.h
 
 Navio.h:
 
 Data.h:
 
 Porto.h:
+
+Cruzeiro.h:
+
+Navio.h:
