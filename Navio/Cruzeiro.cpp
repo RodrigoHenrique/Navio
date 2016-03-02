@@ -80,26 +80,5 @@ const void Cruzeiro::dadosdaViagem(const Cruzeiro &c)
     cout << "\n-- Porto de Partida: " << c.getNomePortoPartida();
     cout << "\n-- Porto de Destino: " << c.getNomePortoDestino();
     cout << "\n-- Tempo de Viagem [/hrs]: " << c.getTempoHoras() << "\n";
-    cout << "-- Partida: ";
-	c.dataPartida.imprimeData();
+    cout << "-- Data da Partida " << c.getData();
 }
-
-/*
-const void Navio::dadosdaViagem(const Navio &n)
-{
-	cout << "Dados da Viagem\n\n";
-	cout << "-- Nome do Navio: " << n.nomeNavio << "\n";
-    cout << "-- Tripulacao:\n\n";
-    if(n.nTripulantes != 0) for(int i=0;i<n.nTripulantes;i++) cout << "--------- " << n.tripulacao[i] << "\n";
-    else cout << "--------- Sem Tripulacao.\n";
-    
-	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
-	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
-	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
-	cout << "-- Partida: ";
-	n.dataPartida.imprimeData();
-	Sleep(1000);
-	system("pause");
-	system("cls");
-}
- */

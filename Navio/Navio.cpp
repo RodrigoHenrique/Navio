@@ -460,3 +460,8 @@ int Navio::getTempoHoras() const
 {
     return this->tempoHoras;
 }
+
+Data Navio::getData() const
+{
+    return this->dataPartida;
+}

@@ -28,6 +28,12 @@ bool Data::operator!= (const Data &dataCompara) const
     return true;
 }
 
+ostream &operator<<(ostream &output,const Data &dataImprime)
+{
+    output << "(DD/MM/AAAA): " << dataImprime.dia << "/" << dataImprime.mes << "/" << dataImprime.ano;
+    return output;
+}
+
 Data::Data(int dia, int mes, int ano)
 {
 
@@ -52,9 +58,4 @@ int Data::checarDia(int dia,int mes,int ano) const
     if((mes == 2) && (dia == 29) && ((ano % 400 == 0) || ((ano % 4 == 0) && (ano % 100 != 0)))) return dia;
     cout << "Dia invalido.\n";
     return 1;
-}
-
-void Data::imprimeData() const
-{
-    cout << "Data (DD/MM/AA): " << dia << "/" << mes << "/" << ano <<"\n"; 
 }

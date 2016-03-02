@@ -1,6 +1,6 @@
 #ifndef CRUZEIRO_H
 #define CRUZEIRO_H
-#include <Navio.h>
+#include "Navio.h"
 #include <string>
 #include "Data.h"
 #include "Porto.h"
