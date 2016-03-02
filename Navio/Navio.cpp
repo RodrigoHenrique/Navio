@@ -435,3 +435,28 @@ string Navio::getNomeNavio() const
 {
     return this->nomeNavio;
 }
+
+int Navio::getNTripulantes() const
+{
+    return this->nTripulantes;
+}
+
+string Navio::getTripulacao(const int &i) const
+{
+    return this->tripulacao[i];
+}
+
+string Navio::getNomePortoPartida() const
+{
+    return this->pPartida.getNomePorto();
+}
+
+string Navio::getNomePortoDestino() const
+{
+    return this->pDestino.getNomePorto();
+}
+
+int Navio::getTempoHoras() const
+{
+    return this->tempoHoras;
+}

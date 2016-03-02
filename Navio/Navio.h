@@ -39,6 +39,11 @@ public:
     
     string getPortoPartida() const;
     string getNomeNavio() const;
+    int getNTripulantes() const;
+    string getTripulacao(const int &) const;
+    string getNomePortoPartida() const;
+    string getNomePortoDestino() const;
+    int getTempoHoras() const;
 
 private:
     Data dataPartida; 
@@ -58,6 +63,8 @@ private:
 	
     string *tripulacao;
     int nTripulantes;
+
+
 };
 
 

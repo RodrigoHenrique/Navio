@@ -47,7 +47,7 @@ bool Cruzeiro::embarque(const int &passageirosNoPorto)
 		do
 		{
 			system("cls");
-			cout << "- " << getNomeNavio();
+			cout << "\n- " << getNomeNavio();
 			cout << "\n- Passageiros no Porto: " << passageirosNoPorto;
 			cout << "\n-- Ha quantos passageiros a subir a bordo? : ";
 			cin >> passageirosASubir;
@@ -74,5 +74,32 @@ const void Cruzeiro::dadosdaViagem(const Cruzeiro &c)
 {
 	cout << "Dados da Viagem\n\n";
 	cout << "-- Nome do Navio: " << c.getNomeNavio() << "\n";
-    
+    cout << "-- Tripulacao:\n\n";
+    if(c.getNTripulantes() != 0) for(int i=0;i<c.getNTripulantes();i++) cout << "--------- " << c.getTripulacao(i) << "\n";
+    else cout << "--------- Sem Tripulacao.\n";
+    cout << "\n-- Porto de Partida: " << c.getNomePortoPartida();
+    cout << "\n-- Porto de Destino: " << c.getNomePortoDestino();
+    cout << "\n-- Tempo de Viagem [/hrs]: " << c.getTempoHoras() << "\n";
+    cout << "-- Partida: ";
+	c.dataPartida.imprimeData();
 }
+
+/*
+const void Navio::dadosdaViagem(const Navio &n)
+{
+	cout << "Dados da Viagem\n\n";
+	cout << "-- Nome do Navio: " << n.nomeNavio << "\n";
+    cout << "-- Tripulacao:\n\n";
+    if(n.nTripulantes != 0) for(int i=0;i<n.nTripulantes;i++) cout << "--------- " << n.tripulacao[i] << "\n";
+    else cout << "--------- Sem Tripulacao.\n";
+    
+	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
+	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
+	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
+	cout << "-- Partida: ";
+	n.dataPartida.imprimeData();
+	Sleep(1000);
+	system("pause");
+	system("cls");
+}
+ */
