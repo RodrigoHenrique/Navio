@@ -30,7 +30,6 @@ bool Navio::operator== (const Navio &navioCompara) const
     if(navioCompara.velocidadeKmHora != velocidadeKmHora) return false;
     if(navioCompara.tempoHoras != tempoHoras) return false;
     if(navioCompara.cancelaRota != cancelaRota) return false;
-    if(navioCompara.passageirosABordo != passageirosABordo) return false;
     //if(navioCompara.tripulacao != tripulacao) return false;
     
     
@@ -61,7 +60,6 @@ const Navio & Navio::operator=(const Navio &navioAtrib)
     velocidadeKmHora = navioAtrib.velocidadeKmHora;
     tempoHoras = navioAtrib.tempoHoras;
     cancelaRota = navioAtrib.cancelaRota;
-    passageirosABordo = navioAtrib.passageirosABordo;
     //tripulacao = navioAtrib.tripulacao;
     nTripulantes = navioAtrib.nTripulantes;
     
@@ -373,6 +371,7 @@ bool Navio::chegouDestino()
 	else return false;
 }
 
+/*
 const void Navio::dadosdaViagem(const Navio &n)
 {
 	cout << "Dados da Viagem\n\n";
@@ -381,7 +380,6 @@ const void Navio::dadosdaViagem(const Navio &n)
     if(n.nTripulantes != 0) for(int i=0;i<n.nTripulantes;i++) cout << "--------- " << n.tripulacao[i] << "\n";
     else cout << "--------- Sem Tripulacao.\n";
     
-	cout << "\n-- Quantidade de Passageiros a bordo: " << n.passageirosABordo;
 	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
 	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
 	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
@@ -391,6 +389,7 @@ const void Navio::dadosdaViagem(const Navio &n)
 	system("pause");
 	system("cls");
 }
+ */
 
 bool Navio::tempestade(const Navio &n)
 {
@@ -432,7 +431,7 @@ void Navio::adicionarTripulacao(const string &cargoTripulante)
     }
 }
 
-string Navio::getNomeNavio()
+string Navio::getNomeNavio() const
 {
     return this->nomeNavio;
 }

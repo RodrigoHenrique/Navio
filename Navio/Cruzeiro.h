@@ -10,15 +10,17 @@ using std::string;
 class Cruzeiro : public Navio
 {
 public:
-    Cruzeiro(const string &,const Data &,const Porto &, const Porto &,int *);
-    Cruzeiro(const Cruzeiro &,const string &,const Data &,int *);
-    Cruzeiro(const Cruzeiro &,int *);
-    Cruzeiro(int *);
+    Cruzeiro(const string &,const Data &,const Porto &, const Porto &,const int &);
+    Cruzeiro(const Navio &,const string &,const Data &,const int &);
+    Cruzeiro(const Navio &,const int &);
+    Cruzeiro(const int &);
     
     ~Cruzeiro();
 
-    bool embarque(int *);
+    bool embarque(const int &);
     bool getEmbarqueEfetuado() const;
+    int getPassageirosABordo() const;
+    static const void dadosdaViagem(const Cruzeiro &);
 
 private:
     int passageirosABordo;

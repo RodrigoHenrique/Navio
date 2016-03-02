@@ -33,12 +33,12 @@ public:
 	void navegar();
 	void operar();
 	bool chegouDestino();
-	static const void dadosdaViagem(const Navio &);
 	bool tempestade(const Navio &);
-	string getPortoPartida() const;
     void adicionarTripulacao(const string &);
-    string getNomeNavio();
     const static int capacidadeMaxima;
+    
+    string getPortoPartida() const;
+    string getNomeNavio() const;
 
 private:
     Data dataPartida; 

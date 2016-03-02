@@ -17,27 +17,25 @@ int main(int argc, char **argv)
 	Porto partida2("Mereen");
     
 	int p = 100;
-    int *pp;
-    pp = &p;
     
-	Cruzeiro navio1("Balerion",date1,partida1,destino,pp);
+	Cruzeiro navio1("Balerion",date1,partida1,destino,p);
 	navio1.definirRota();
 	
     
 	if(navio1.getEmbarqueEfetuado())
 	{
-        p = *pp;
+        p -= navio1.getPassageirosABordo();
 		if(navio1.ligarMotores())
 		{
 			navio1.navegar();
-			if(navio1.chegouDestino()) Navio::dadosdaViagem(navio1);
+			if(navio1.chegouDestino()) Cruzeiro::dadosdaViagem(navio1);
 		}
 	}
 	
 	
 	Data date2(15,10,2010);
 	
-	Cruzeiro navio2(navio1,"Meraxes",date2,pp);
+	Cruzeiro navio2(navio1,"Meraxes",date2,p);
     
     if(navio1 == navio2) cout << navio2 << "\n";
 	
@@ -48,7 +46,7 @@ int main(int argc, char **argv)
 		if(navio2.ligarMotores(navio1))
 		{
 			navio2.navegar();
-			if(navio2.chegouDestino()) Navio::dadosdaViagem(navio2);
+			if(navio2.chegouDestino()) Cruzeiro::dadosdaViagem(navio2);
 		}
 	}
 
