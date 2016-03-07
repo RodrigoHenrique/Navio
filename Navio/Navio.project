@@ -100,5 +100,7 @@
     <File Name="Porto.cpp"/>
     <File Name="Cruzeiro.h"/>
     <File Name="Cruzeiro.cpp"/>
+    <File Name="CruzeiroComercial.h"/>
+    <File Name="CruzeiroComercial.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

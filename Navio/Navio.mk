@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=FACOMP
-Date                   :=02/03/2016
+Date                   :=07/03/2016
 CodeLitePath           :="C:\Program Files\CodeLite"
 LinkerName             :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe
 SharedObjectLinkerName :=C:/cygwin64/bin/x86_64-pc-cygwin-g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/cygwin64/bin/x86_64-pc-cygwin-as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) 
 
 
 
@@ -132,6 +132,14 @@ $(IntermediateDirectory)/Cruzeiro.cpp$(DependSuffix): Cruzeiro.cpp
 
 $(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix): Cruzeiro.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix) "Cruzeiro.cpp"
+
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix): CruzeiroComercial.cpp $(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/Navio/CruzeiroComercial.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix): CruzeiroComercial.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix) -MM "CruzeiroComercial.cpp"
+
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(PreprocessSuffix): CruzeiroComercial.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CruzeiroComercial.cpp$(PreprocessSuffix) "CruzeiroComercial.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
