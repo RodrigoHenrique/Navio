@@ -10,12 +10,15 @@ using std::string;
 class Cruzeiro : public Navio
 {
 public:
+
     Cruzeiro(const string &,const Data &,const Porto &, const Porto &,const int &);
     Cruzeiro(const Navio &,const string &,const Data &,const int &);
     Cruzeiro(const Navio &,const int &);
     Cruzeiro(const int &);
     
     ~Cruzeiro();
+    
+    const Cruzeiro &operator=(const Cruzeiro &);
 
     bool embarque(const int &);
     bool getEmbarqueEfetuado() const;

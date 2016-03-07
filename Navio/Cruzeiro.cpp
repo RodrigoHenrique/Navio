@@ -60,6 +60,11 @@ bool Cruzeiro::embarque(const int &passageirosNoPorto)
     }
 }
 
+const Cruzeiro & Cruzeiro::operator=(const Cruzeiro &cruzeiroAtrib)
+{
+    
+}
+
 bool Cruzeiro::getEmbarqueEfetuado() const
 {
     return this->embarqueEfetuado;
