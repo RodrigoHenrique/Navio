@@ -38,6 +38,31 @@ Cruzeiro::~Cruzeiro()
 {
 }
 
+ostream &operator<<(ostream &output,const Cruzeiro &cruzeiroImprime)
+{
+    output << static_cast <Navio> (cruzeiroImprime);
+    output << "\nPassageiros a bordo: " << cruzeiroImprime.passageirosABordo;
+    return output;
+}
+
+const Cruzeiro & Cruzeiro::operator=(const Cruzeiro &cruzeiroAtribui)
+{
+    static_cast<Navio> (*this) = static_cast<Navio> (cruzeiroAtribui);
+    this->passageirosABordo = cruzeiroAtribui.passageirosABordo;
+}
+
+bool Cruzeiro::operator==(const Cruzeiro &cruzeiroCompara) const
+{
+    if((static_cast<Navio> (*this) == static_cast<Navio>(cruzeiroCompara)) && getPassageirosABordo() == cruzeiroCompara.passageirosABordo && getEmbarqueEfetuado() == cruzeiroCompara.embarqueEfetuado)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 bool Cruzeiro::embarque(const int &passageirosNoPorto)
 {
     if(passageirosNoPorto > capacidadeMaxima) return false;

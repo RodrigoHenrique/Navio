@@ -3,12 +3,14 @@
 #include "Navio.h"
 #include <string>
 #include "Data.h"
-#include "Porto.h"
+#include <iostream>
 
 using std::string;
+using std::ostream;
 
 class Cruzeiro : public Navio
 {
+    friend ostream &operator<<(ostream &,const Cruzeiro &);
 public:
     Cruzeiro(const string &,const Data &,const Porto &, const Porto &,const int &);
     Cruzeiro(const Navio &,const string &,const Data &,const int &);
@@ -16,6 +18,9 @@ public:
     Cruzeiro(const int &);
     
     ~Cruzeiro();
+    
+    const Cruzeiro &operator=(const Cruzeiro &);
+    bool operator==(const Cruzeiro &) const;
 
     bool embarque(const int &);
     bool getEmbarqueEfetuado() const;

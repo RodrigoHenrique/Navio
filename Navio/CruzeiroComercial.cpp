@@ -7,6 +7,7 @@
 #include "Cruzeiro.h"
 
 using std::string;
+using std::cout;
 
 const int CruzeiroComercial::tempoMaximo = 100;
 
@@ -29,7 +30,7 @@ CruzeiroComercial::CruzeiroComercial(const Navio &navio,const int &passageiros)
 }
 
 CruzeiroComercial::CruzeiroComercial(const int &passageiros)
-:Cruzeiro()
+:Cruzeiro(passageiros)
 {
     this->podeNavegarTempoHabil = false;
 }
@@ -38,3 +39,34 @@ CruzeiroComercial::~CruzeiroComercial()
 {
 }
 
+ostream &operator<<(ostream &output,const CruzeiroComercial &cruzeiroComImprime)
+{
+    output << static_cast <CruzeiroComercial> (cruzeiroComImprime);
+    return output;
+}
+
+const CruzeiroComercial & CruzeiroComercial::operator=(const CruzeiroComercial &cruzeiroComAtribui)
+{
+    static_cast<Cruzeiro> (*this) = static_cast<Cruzeiro> (cruzeiroComAtribui);
+    this->podeNavegarTempoHabil = cruzeiroComAtribui.podeNavegarTempoHabil;
+}
+
+bool CruzeiroComercial::operator==(const CruzeiroComercial &cruzeiroComCompara) const
+{
+    if((static_cast<Cruzeiro> (*this) == static_cast<Cruzeiro>(cruzeiroComCompara)) && podeNavegarTempoHabil == cruzeiroComCompara.podeNavegarTempoHabil)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool CruzeiroComercial::testaTempoHabil()
+{
+    int vel = getVelocidadeMaxima();
+    int distanciaKm = getDistanciaKm();
+    if((distanciaKm/vel) > tempoMaximo) return false;
+    return true;
+}

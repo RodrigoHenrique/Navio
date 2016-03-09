@@ -465,3 +465,13 @@ Data Navio::getData() const
 {
     return this->dataPartida;
 }
+
+int Navio::getVelocidadeMaxima() const
+{
+    return 32;
+}
+
+int Navio::getDistanciaKm() const
+{
+    return this->distanciaKm;
+}

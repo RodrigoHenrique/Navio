@@ -45,6 +45,8 @@ public:
     string getNomePortoDestino() const;
     int getTempoHoras() const;
     Data getData() const;
+    int getVelocidadeMaxima() const;
+    int getDistanciaKm() const;
 
 private:
     Data dataPartida; 

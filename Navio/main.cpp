@@ -4,6 +4,7 @@
 #include "Data.h"
 #include "Porto.h"
 #include "Cruzeiro.h"
+#include "CruzeiroComercial.h"
 
 using std::cout;
 using std::cin;
@@ -18,37 +19,44 @@ int main(int argc, char **argv)
     
 	int p = 100;
     
-	Cruzeiro navio1("Balerion",date1,partida1,destino,p);
+	CruzeiroComercial navio1("Balerion",date1,partida1,destino,p);
 	navio1.definirRota();
-	
+	if(navio1.testaTempoHabil())
+    {
+        if(navio1.getEmbarqueEfetuado())
+        {
+            p -= navio1.getPassageirosABordo(); 
+            if(navio1.ligarMotores())
+            {
+                navio1.navegar();
+                if(navio1.chegouDestino()) Cruzeiro::dadosdaViagem(navio1);
+            }
+        }
+    }
     
-	if(navio1.getEmbarqueEfetuado())
-	{
-        p -= navio1.getPassageirosABordo();
-		if(navio1.ligarMotores())
-		{
-			navio1.navegar();
-			if(navio1.chegouDestino()) Cruzeiro::dadosdaViagem(navio1);
-		}
-	}
+	
 	
 	
 	Data date2(15,10,2010);
 	
-	Cruzeiro navio2(navio1,"Meraxes",date2,p);
+	CruzeiroComercial navio2(navio1,"Meraxes",date2,p);
     
     if(navio1 == navio2) cout << navio2 << "\n";
 	
 	if(navio1.getPortoPartida() != navio2.getPortoPartida()) navio2.definirRota();
 	
-	if(navio2.getEmbarqueEfetuado())
-	{
-		if(navio2.ligarMotores(navio1))
-		{
-			navio2.navegar();
-			if(navio2.chegouDestino()) Cruzeiro::dadosdaViagem(navio2);
-		}
-	}
+	if(navio2.testaTempoHabil())
+    {
+        if(navio2.getEmbarqueEfetuado())
+        {
+            p -= navio2.getPassageirosABordo(); 
+            if(navio2.ligarMotores())
+            {
+                navio2.navegar();
+                if(navio2.chegouDestino()) Cruzeiro::dadosdaViagem(navio2);
+            }
+        }
+    }
 
 	return 0;
 }
