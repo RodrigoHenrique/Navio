@@ -35,6 +35,12 @@ CruzeiroComercial::CruzeiroComercial(const int &passageiros)
     this->podeNavegarTempoHabil = false;
 }
 
+CruzeiroComercial::CruzeiroComercial(const CruzeiroComercial &cruzeiroComCopia)
+:Cruzeiro(static_cast<Cruzeiro> (cruzeiroComCopia))
+{
+	this->podeNavegarTempoHabil = cruzeiroComCopia.podeNavegarTempoHabil;
+}
+
 CruzeiroComercial::~CruzeiroComercial()
 {
 }

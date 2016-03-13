@@ -1,54 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Session Name="C:\Users\FACOMP\git\Navio\Navio.workspace">
-  <int Value="1" Name="m_selectedTab"/>
-  <wxString Value="C:\Users\FACOMP\git\Navio\Navio.workspace" Name="m_workspaceName"/>
+<Session Name="C:\Users\Rodrigo\git\Navio\Navio.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="C:\Users\Rodrigo\git\Navio\Navio.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\CruzeiroComercial.cpp" Name="FileName"/>
-      <int Value="39" Name="FirstVisibleLine"/>
-      <int Value="68" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\CruzeiroComercial.h" Name="FileName"/>
+      <wxString Value="C:\Users\Rodrigo\git\Navio\Navio\Porto.h" Name="FileName"/>
       <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="17" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\Cruzeiro.cpp" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="52" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\Cruzeiro.h" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="18" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\Navio.cpp" Name="FileName"/>
-      <int Value="237" Name="FirstVisibleLine"/>
-      <int Value="475" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\Navio.h" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
-      <int Value="24" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\FACOMP\git\Navio\Navio\main.cpp" Name="FileName"/>
-      <int Value="21" Name="FirstVisibleLine"/>
-      <int Value="33" Name="CurrentLine"/>
+      <int Value="16" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

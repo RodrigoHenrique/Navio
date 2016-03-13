@@ -14,62 +14,6 @@ using std::getline;
 
 const int Navio::capacidadeMaxima = 100;
 
-
-bool Navio::operator== (const Navio &navioCompara) const
-{
-    if(navioCompara.nomeNavio != nomeNavio) return false;
-    if(navioCompara.getPortoPartida() != getPortoPartida()) return false;
-    if(navioCompara.dataPartida != dataPartida) return false;
-    if(navioCompara.liberaNavegacao != liberaNavegacao) return false;
-    if(navioCompara.estadoMotor != estadoMotor) return false;
-    if(navioCompara.distanciaKm != distanciaKm) return false;
-    if(navioCompara.distanciaKmAuto != distanciaKmAuto) return false;
-    if(navioCompara.distanciaKmEntrePortos != distanciaKmEntrePortos) return false;
-    if(navioCompara.modoPilotoAuto != modoPilotoAuto) return false;
-    if(navioCompara.nivelVelocidade != nivelVelocidade) return false;
-    if(navioCompara.velocidadeKmHora != velocidadeKmHora) return false;
-    if(navioCompara.tempoHoras != tempoHoras) return false;
-    if(navioCompara.cancelaRota != cancelaRota) return false;
-    //if(navioCompara.tripulacao != tripulacao) return false;
-    
-    
-    if(navioCompara.nTripulantes != nTripulantes) return false;
-    else for(int i=0;i<nTripulantes;i++) if(navioCompara.tripulacao[i] != tripulacao[i]) return false;
-    
-    return true;
-}
-
-ostream &operator<<(ostream &output,const Navio &navioImprime)
-{
-    output << "NOME DO NAVIO: " << navioImprime.nomeNavio << "\nPORTO DE PARTIDA: " << navioImprime.getPortoPartida();
-    return output;
-}
-
-const Navio & Navio::operator=(const Navio &navioAtrib)
-{
-    nomeNavio = navioAtrib.nomeNavio;
-    pPartida = navioAtrib.pPartida;
-    dataPartida = navioAtrib.dataPartida;
-    liberaNavegacao = navioAtrib.liberaNavegacao;
-    estadoMotor = navioAtrib.estadoMotor;
-    distanciaKm = navioAtrib.distanciaKm;
-    distanciaKmAuto = navioAtrib.distanciaKmAuto;
-    distanciaKmEntrePortos = navioAtrib.distanciaKmEntrePortos;
-    modoPilotoAuto = navioAtrib.modoPilotoAuto;
-    nivelVelocidade = navioAtrib.nivelVelocidade;
-    velocidadeKmHora = navioAtrib.velocidadeKmHora;
-    tempoHoras = navioAtrib.tempoHoras;
-    cancelaRota = navioAtrib.cancelaRota;
-    //tripulacao = navioAtrib.tripulacao;
-    nTripulantes = navioAtrib.nTripulantes;
-    
-    delete [] tripulacao;
-    tripulacao = new string[navioAtrib.nTripulantes];
-    for(int i=0;i<navioAtrib.nTripulantes;i++) tripulacao[i] = navioAtrib.tripulacao[i];
-    
-    
-}
-
 Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
 {
 	this->nomeNavio = nome;
@@ -132,6 +76,59 @@ Navio::Navio()
 Navio::~Navio()
 {
     delete [] tripulacao;
+}
+
+bool Navio::operator== (const Navio &navioCompara) const
+{
+    if(navioCompara.nomeNavio != nomeNavio) return false;
+    if(navioCompara.getPortoPartida() != getPortoPartida()) return false;
+    if(navioCompara.dataPartida != dataPartida) return false;
+    if(navioCompara.liberaNavegacao != liberaNavegacao) return false;
+    if(navioCompara.estadoMotor != estadoMotor) return false;
+    if(navioCompara.distanciaKm != distanciaKm) return false;
+    if(navioCompara.distanciaKmAuto != distanciaKmAuto) return false;
+    if(navioCompara.distanciaKmEntrePortos != distanciaKmEntrePortos) return false;
+    if(navioCompara.modoPilotoAuto != modoPilotoAuto) return false;
+    if(navioCompara.nivelVelocidade != nivelVelocidade) return false;
+    if(navioCompara.velocidadeKmHora != velocidadeKmHora) return false;
+    if(navioCompara.tempoHoras != tempoHoras) return false;
+    if(navioCompara.cancelaRota != cancelaRota) return false;
+    //if(navioCompara.tripulacao != tripulacao) return false;
+    
+    
+    if(navioCompara.nTripulantes != nTripulantes) return false;
+    else for(int i=0;i<nTripulantes;i++) if(navioCompara.tripulacao[i] != tripulacao[i]) return false;
+    
+    return true;
+}
+
+ostream &operator<<(ostream &output,const Navio &navioImprime)
+{
+    output << "NOME DO NAVIO: " << navioImprime.nomeNavio << "\nPORTO DE PARTIDA: " << navioImprime.getPortoPartida();
+    return output;
+}
+
+const Navio & Navio::operator=(const Navio &navioAtrib)
+{
+    nomeNavio = navioAtrib.nomeNavio;
+    pPartida = navioAtrib.pPartida;
+    dataPartida = navioAtrib.dataPartida;
+    liberaNavegacao = navioAtrib.liberaNavegacao;
+    estadoMotor = navioAtrib.estadoMotor;
+    distanciaKm = navioAtrib.distanciaKm;
+    distanciaKmAuto = navioAtrib.distanciaKmAuto;
+    distanciaKmEntrePortos = navioAtrib.distanciaKmEntrePortos;
+    modoPilotoAuto = navioAtrib.modoPilotoAuto;
+    nivelVelocidade = navioAtrib.nivelVelocidade;
+    velocidadeKmHora = navioAtrib.velocidadeKmHora;
+    tempoHoras = navioAtrib.tempoHoras;
+    cancelaRota = navioAtrib.cancelaRota;
+    //tripulacao = navioAtrib.tripulacao;
+    nTripulantes = navioAtrib.nTripulantes;
+    
+    delete [] tripulacao;
+    tripulacao = new string[navioAtrib.nTripulantes];
+    for(int i=0;i<navioAtrib.nTripulantes;i++) tripulacao[i] = navioAtrib.tripulacao[i];
 }
 
 void Navio::definirRota()

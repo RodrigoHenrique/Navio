@@ -34,6 +34,13 @@ Cruzeiro::Cruzeiro(const int &passageirosNoPorto)
     else this->embarqueEfetuado = false;
 }
 
+Cruzeiro::Cruzeiro(const Cruzeiro &cruzeiroCopia)
+:Navio(static_cast<Navio> (cruzeiroCopia))
+{
+	this->passageirosABordo = cruzeiroCopia.passageirosABordo;
+	this->embarqueEfetuado = cruzeiroCopia.embarqueEfetuado;
+}
+
 Cruzeiro::~Cruzeiro()
 {
 }

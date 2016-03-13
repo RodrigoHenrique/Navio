@@ -15,14 +15,14 @@ class Navio
     
 public:
 
-    const Navio &operator=(const Navio &);
-    bool operator==(const Navio &) const;
-    
 	Navio(const string &,const Data &,const Porto &,const Porto &);
     Navio(const Navio &);
     Navio(const Navio &,const string &,const Data &);
 	Navio();
 	~Navio();
+	
+	const Navio &operator=(const Navio &);
+    bool operator==(const Navio &) const;
 	
 	void definirRota();
 	bool ligarMotores();
