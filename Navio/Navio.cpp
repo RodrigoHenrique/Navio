@@ -27,6 +27,7 @@ Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto 
 	this->tempoHoras = 0;
     tripulacao = 0;
     nTripulantes = 0;
+	this->tempestadeRelatada = false;
 }
 
 Navio::Navio(const Navio &n)
@@ -42,6 +43,7 @@ Navio::Navio(const Navio &n)
 	this->tempoHoras = 0;
     tripulacao = 0;
     nTripulantes = 0;
+	this->tempestadeRelatada = false;
 }
 
 Navio::Navio(const Navio &n,const string &nome,const Data &date)
@@ -58,6 +60,7 @@ Navio::Navio(const Navio &n,const string &nome,const Data &date)
 	this->tempoHoras = 0;
     tripulacao = 0;
     nTripulantes = 0;
+	this->tempestadeRelatada = false;
 }
 Navio::Navio()
 {
@@ -71,6 +74,7 @@ Navio::Navio()
 	this->tempoHoras = 0;
     tripulacao = 0;
     nTripulantes = 0;
+	this->tempestadeRelatada = false;
 }
 
 Navio::~Navio()
@@ -176,13 +180,11 @@ bool Navio::ligarMotores()
 	}
 }
 
-bool Navio::ligarMotores(const Navio &n)
+bool Navio::ligarMotores()
 {
-	if(tempestade(n))
+	if(this->tempestadeRelatada)
 	{
-		cout << "Navio: " << nomeNavio;
-		Sleep(500);
-		cout << "\nHa tempestade relatada pelo Navio que possui o mesmo destino que este.\n\nViagem Impossibilitada.\n\n";
+		return false;
 	}
 	else
 	{
@@ -390,7 +392,14 @@ const void Navio::dadosdaViagem(const Navio &n)
 
 bool Navio::tempestade(const Navio &n)
 {
-	if(n.cancelaRota&&(this->pDestino.getNomePorto() == n.pDestino.getNomePorto())) return true;
+	if(n.cancelaRota&&(this->pDestino == n.pDestino))
+	{
+		cout << (*this);
+		Sleep(500);
+		cout << "\nHa tempestade relatada pelo Navio que possui o mesmo destino que este.\n\nViagem Impossibilitada.\n\n";
+		this->tempestadeRelatada = true;
+		return true;
+	}
 	else return false;
 }
 

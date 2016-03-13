@@ -50,6 +50,7 @@ int main(int argc, char **argv)
         if(navio2.getEmbarqueEfetuado())
         {
             p -= navio2.getPassageirosABordo(); 
+			navio2.tempestade(static_cast<Navio> (navio1)); //Ocorre um erro durante a execução desse trecho: quando testa-se caso hoive uma tempestade com a viagem do navio anterior, e caso ele e este tenham o mesmo destino, entao o navio presente nao mpode ligar os motores. Porem quando isso nao ocorre, ainda assim não é permitio ligar os motores, cancelaRota = True. 
             if(navio2.ligarMotores())
             {
                 navio2.navegar();

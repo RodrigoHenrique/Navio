@@ -63,6 +63,7 @@ private:
 	int velocidadeKmHora;
 	int tempoHoras;
 	bool cancelaRota;
+	bool tempestadeRelatada;
 	
     string *tripulacao;
     int nTripulantes;
