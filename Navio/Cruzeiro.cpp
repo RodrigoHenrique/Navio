@@ -112,5 +112,6 @@ const void Cruzeiro::dadosdaViagem(const Cruzeiro &c)
     cout << "\n-- Porto de Partida: " << c.getNomePortoPartida();
     cout << "\n-- Porto de Destino: " << c.getNomePortoDestino();
     cout << "\n-- Tempo de Viagem [/hrs]: " << c.getTempoHoras() << "\n";
-    cout << "-- Data da Partida " << c.getData();
+    cout << "-- Data da Partida " << c.getData() << "\n";
+	system("pause");
 }

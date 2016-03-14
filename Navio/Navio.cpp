@@ -12,7 +12,7 @@ using std::endl;
 using std::string;
 using std::getline;
 
-const int Navio::capacidadeMaxima = 100;
+const int Navio::capacidadeMaxima = 1000;
 
 Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
 {
@@ -97,18 +97,15 @@ bool Navio::operator== (const Navio &navioCompara) const
     if(navioCompara.velocidadeKmHora != velocidadeKmHora) return false;
     if(navioCompara.tempoHoras != tempoHoras) return false;
     if(navioCompara.cancelaRota != cancelaRota) return false;
-    //if(navioCompara.tripulacao != tripulacao) return false;
-    
-    
     if(navioCompara.nTripulantes != nTripulantes) return false;
     else for(int i=0;i<nTripulantes;i++) if(navioCompara.tripulacao[i] != tripulacao[i]) return false;
-    
     return true;
 }
 
 ostream &operator<<(ostream &output,const Navio &navioImprime)
 {
-    output << "NOME DO NAVIO: " << navioImprime.nomeNavio << "\nPORTO DE PARTIDA: " << navioImprime.getPortoPartida();
+    output << "NOME DO NAVIO: " << navioImprime.nomeNavio << "\nPORTO DE PARTIDA: " << navioImprime.pPartida << "\nPORTO DE DESTINO: " << navioImprime.pDestino;
+    output << "\nTEMPO DE VIAGEM DECORRIDO: " << navioImprime.tempoHoras;
     return output;
 }
 
@@ -126,8 +123,7 @@ const Navio & Navio::operator=(const Navio &navioAtrib)
     nivelVelocidade = navioAtrib.nivelVelocidade;
     velocidadeKmHora = navioAtrib.velocidadeKmHora;
     tempoHoras = navioAtrib.tempoHoras;
-    cancelaRota = navioAtrib.cancelaRota;
-    //tripulacao = navioAtrib.tripulacao;
+	cancelaRota = navioAtrib.cancelaRota;
     nTripulantes = navioAtrib.nTripulantes;
     
     delete [] tripulacao;
@@ -161,22 +157,6 @@ void Navio::definirRota()
             adicionarTripulacao(nTrip);
         }while(1);
 		system("cls");
-	}
-}
-
-bool Navio::ligarMotores()
-{
-	if(liberaNavegacao)
-	{
-		estadoMotor = true;
-		velocidadeKmHora = 2;
-		modoPilotoAuto = false;
-		return true;	
-	}
-	else
-	{
-		cout << "\nNao tem permissao para zarpar.\n\n";
-		return false;
 	}
 }
 
@@ -370,26 +350,6 @@ bool Navio::chegouDestino()
 	else return false;
 }
 
-/*
-const void Navio::dadosdaViagem(const Navio &n)
-{
-	cout << "Dados da Viagem\n\n";
-	cout << "-- Nome do Navio: " << n.nomeNavio << "\n";
-    cout << "-- Tripulacao:\n\n";
-    if(n.nTripulantes != 0) for(int i=0;i<n.nTripulantes;i++) cout << "--------- " << n.tripulacao[i] << "\n";
-    else cout << "--------- Sem Tripulacao.\n";
-    
-	cout << "\n-- Porto de Partida: " << n.pPartida.getNomePorto();
-	cout << "\n-- Porto de Destino: " << n.pDestino.getNomePorto();
-	cout << "\n-- Tempo de Viagem [/hrs]: " << n.tempoHoras << "\n";
-	cout << "-- Partida: ";
-	n.dataPartida.imprimeData();
-	Sleep(1000);
-	system("pause");
-	system("cls");
-}
- */
-
 bool Navio::tempestade(const Navio &n)
 {
 	if(n.cancelaRota&&(this->pDestino == n.pDestino))
@@ -402,8 +362,6 @@ bool Navio::tempestade(const Navio &n)
 	}
 	else return false;
 }
-
-
 
 string Navio::getPortoPartida() const
 {
@@ -480,4 +438,14 @@ int Navio::getVelocidadeMaxima() const
 int Navio::getDistanciaKm() const
 {
     return this->distanciaKm;
+}
+
+bool Navio::getLiberaNavegacao() const
+{
+	return this->liberaNavegacao;
+}
+
+bool Navio::getTempestadeRelatada() const
+{
+	return this->tempestadeRelatada;
 }

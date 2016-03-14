@@ -102,5 +102,9 @@
     <File Name="Cruzeiro.cpp"/>
     <File Name="CruzeiroComercial.h"/>
     <File Name="CruzeiroComercial.cpp"/>
+    <File Name="Cargueiro.h"/>
+    <File Name="Cargueiro.cpp"/>
+    <File Name="Carga.h"/>
+    <File Name="Carga.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

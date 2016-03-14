@@ -1,4 +1,3 @@
-
 #ifndef NAVIO_H
 #define NAVIO_H
 #include <iostream>
@@ -47,6 +46,8 @@ public:
     Data getData() const;
     int getVelocidadeMaxima() const;
     int getDistanciaKm() const;
+	bool getLiberaNavegacao() const;
+    bool getTempestadeRelatada() const;
 
 private:
     Data dataPartida; 
@@ -69,6 +70,5 @@ private:
     int nTripulantes;
     
 };
-
 
 #endif // NAVIO_H
