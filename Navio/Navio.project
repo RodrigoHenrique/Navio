@@ -106,5 +106,11 @@
     <File Name="Cargueiro.cpp"/>
     <File Name="Carga.h"/>
     <File Name="Carga.cpp"/>
+    <File Name="Veiculo.h"/>
+    <File Name="Veiculo.cpp"/>
+    <File Name="Embarcacao.h"/>
+    <File Name="Embarcacao.cpp"/>
+    <File Name="Submarino.h"/>
+    <File Name="Submarino.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
