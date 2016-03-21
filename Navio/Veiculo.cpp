@@ -13,3 +13,12 @@ Veiculo::~Veiculo()
 {
 }
 
+string Veiculo::getProprietario() const
+{
+	return this->proprietario;
+}
+
+string Veiculo::getMeioLocomocao() const
+{
+	return this->meioLocomocao;
+}

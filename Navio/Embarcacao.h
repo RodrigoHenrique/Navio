@@ -3,13 +3,17 @@
 #include <string>
 #include "Veiculo.h"
 
-using namespace std;
+using std::string;
 
 class Embarcacao : public Veiculo
 {
 public:
     Embarcacao(const string &,const string &,const string &);
     ~Embarcacao();
+	
+	virtual void imprimeViagem() = 0;
+	
+	string getTipHelice() const;
 
 private:
     string tipoHelice;

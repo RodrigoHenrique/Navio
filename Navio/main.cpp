@@ -8,9 +8,12 @@
 #include "Cruzeiro.h"
 #include "CruzeiroComercial.h"
 #include "Cargueiro.h"
+#include <vector>
 
 using std::cout;
 using std::cin;
+using std::vector;
+using std::string;
 
 void opCruzeiro()
 {
@@ -203,12 +206,49 @@ int main(int argc, char **argv)
 		
 		int op;
 		cout << "CLASSE NAVIO\n";
-		cout << "\nPara simular a viagem de um Cruzeiro, digite 1.\nPara simular a viagem de um Cruzeiro Comercial, digite 2.\nPara simular a viagem de um Cargueiro, digite 3.\nPara sair da simulação, digite 4.\n\n";
+		cout << "\nPara simular a viagem de um Cruzeiro, digite 1.\nPara simular a viagem de um Cruzeiro Comercial, digite 2.\nPara simular a viagem de um Cargueiro, digite 3.\nPara sair da simulacao, depois de simular Submarino, digite 4.\n\n";
 		cout << "OPCAO --> ";
 		cin >> op;
 		if(op == 4) break;
 		OpcaoTipoNavio(op);
 		
 	}while(true);
+	
+	system("cls");
+	Sleep(500);
+	
+	vector<Submarino> subs;
+	
+	cout << "Simulando Submarinos - Prototipo.\n\n";
+	
+	while(true)
+	{
+		int i = 0;
+		string s1 = "Mar",s2,s3,s4;
+		cout << "Nome do Proprietario do Submarino " << subs.size() << ": ";
+		cin >> s2;
+		cout << "Tipo de Helice: ";
+		cin >> s3;
+		cout << "Tipo de Combustivel Nuclear: ";
+		cin >> s4;
+		Submarino subTeste(s1,s2,s3,s4);
+		subs.push_back(subTeste);
+		cout << "\nContinuar? --> Digite 1: ";
+		cin >> i;
+		
+		system("cls");
+		Sleep(500);
+		
+		if (i != 1) break;
+	}
+	
+	for(int j=0;j<subs.size();j++)
+	{
+		cout << "Submarino " << j << ":\n\n";
+		subs[j].imprimeViagem();
+		cout << "\n\n";
+	}
+	
+	cout << "\n";
 	return 0;
 }

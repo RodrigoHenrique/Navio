@@ -14,3 +14,7 @@ Embarcacao::~Embarcacao()
 {
 }
 
+string Embarcacao::getTipHelice() const
+{
+	return this->tipoHelice;
+}
