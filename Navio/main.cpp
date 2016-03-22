@@ -9,6 +9,7 @@
 #include "CruzeiroComercial.h"
 #include "Cargueiro.h"
 #include <vector>
+#include "Submarino.h"
 
 using std::cout;
 using std::cin;
@@ -217,7 +218,7 @@ int main(int argc, char **argv)
 	system("cls");
 	Sleep(500);
 	
-	vector<Submarino> subs;
+	vector<Submarino *> subs;
 	
 	cout << "Simulando Submarinos - Prototipo.\n\n";
 	
@@ -231,7 +232,7 @@ int main(int argc, char **argv)
 		cin >> s3;
 		cout << "Tipo de Combustivel Nuclear: ";
 		cin >> s4;
-		Submarino subTeste(s1,s2,s3,s4);
+		Submarino *subTeste = new Submarino(s1,s2,s3,s4);
 		subs.push_back(subTeste);
 		cout << "\nContinuar? --> Digite 1: ";
 		cin >> i;
@@ -242,10 +243,10 @@ int main(int argc, char **argv)
 		if (i != 1) break;
 	}
 	
-	for(int j=0;j<subs.size();j++)
+	for(size_t j=0;j<subs.size();j++)
 	{
 		cout << "Submarino " << j << ":\n\n";
-		subs[j].imprimeViagem();
+		subs[j]->imprimeViagem();
 		cout << "\n\n";
 	}
 	
