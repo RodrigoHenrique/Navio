@@ -2,40 +2,21 @@
 #include <stdlib.h>
 #include <windows.h>
 #include "Navio.h"
+#include <string>
 
+using std::string;
 using std::cout;
 using std::cin;
 
-Cruzeiro::Cruzeiro(const string &nomeCruzeiro,const Data &dataPartida,const Porto &portoPartida,const Porto &portoDestino,const int &passageirosNoPorto)
-:Navio(nomeCruzeiro,dataPartida,portoPartida,portoDestino)
-{
-    if(embarque(passageirosNoPorto)) this->embarqueEfetuado = true;
-    else this->embarqueEfetuado = false;
-}
-
-Cruzeiro::Cruzeiro(const Navio &navioCopia,const string &nomeNavio,const Data &dataPartida,const int &passageirosNoPorto)
-:Navio(navioCopia,nomeNavio,dataPartida)
-{
-    if(embarque(passageirosNoPorto)) this->embarqueEfetuado = true;
-    else this->embarqueEfetuado = false;
-}
-
-Cruzeiro::Cruzeiro(const Navio &navioCopia,const int &passageirosNoPorto)
-:Navio(navioCopia)
-{
-    if(embarque(passageirosNoPorto)) this->embarqueEfetuado = true;
-    else this->embarqueEfetuado = false;
-}
-
-Cruzeiro::Cruzeiro(const int &passageirosNoPorto)
-:Navio()
+Cruzeiro::Cruzeiro(const string &nomeCruzeiro,const Data &dataPartida,const Porto &portoPartida,const Porto &portoDestino,const int &passageirosNoPorto,const string &meioLoc,const string &prop,const string &tipoHel)
+:Navio(nomeCruzeiro,dataPartida,portoPartida,portoDestino,meioLoc,prop,tipoHel)
 {
     if(embarque(passageirosNoPorto)) this->embarqueEfetuado = true;
     else this->embarqueEfetuado = false;
 }
 
 Cruzeiro::Cruzeiro(const Cruzeiro &cruzeiroCopia)
-:Navio(static_cast<Navio> (cruzeiroCopia))
+:Navio(static_cast<Navio> (cruzeiroCopia)) //Porque nao se pode usar static_cast aqui, sse naio não ée abstrato? Corrigir os parâmetros dos objetonss no main.cpp: Cruzeiroe e Cruzero Comercial
 {
 	this->passageirosABordo = cruzeiroCopia.passageirosABordo;
 	this->embarqueEfetuado = cruzeiroCopia.embarqueEfetuado;

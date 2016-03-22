@@ -9,6 +9,12 @@ Veiculo::Veiculo(const string &meioLoc,const string &prop)
     this->proprietario = prop;
 }
 
+Veiculo::Veiculo(cost Veiculo &v)
+{
+    this->meioLocomocao = v.meioLocomocao;
+    this->proprietario = v.proprietario;
+}
+
 Veiculo::~Veiculo()
 {
 }

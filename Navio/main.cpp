@@ -200,6 +200,7 @@ void OpcaoTipoNavio(const int op)
 
 int main(int argc, char **argv)
 {
+    /*
 	do
 	{
 		system("cls");
@@ -214,7 +215,7 @@ int main(int argc, char **argv)
 		OpcaoTipoNavio(op);
 		
 	}while(true);
-	
+	*/
 	system("cls");
 	Sleep(500);
 	

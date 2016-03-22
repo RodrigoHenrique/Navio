@@ -4,20 +4,19 @@
 #include <string>
 #include "Data.h"
 #include "Porto.h"
+#include "Embarcacao.h"
 
 using std::string;
 using std::ostream;
 
-class Navio
+class Navio : public Embarcacao
 {
     friend ostream &operator<<(ostream &,const Navio &);
     
 public:
 
-	Navio(const string &,const Data &,const Porto &,const Porto &);
+	Navio(const string &,const Data &,const Porto &,const Porto &,const string &,const string &,const string &);
     Navio(const Navio &);
-    Navio(const Navio &,const string &,const Data &);
-	Navio();
 	~Navio();
 	
 	const Navio &operator=(const Navio &);

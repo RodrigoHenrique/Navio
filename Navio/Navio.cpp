@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "Data.h"
 #include "Porto.h"
+#include "Embarcacao.h"
 
 using std::cout;
 using std::cin;
@@ -14,7 +15,8 @@ using std::getline;
 
 const int Navio::capacidadeMaxima = 1000;
 
-Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2)
+Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto &port2,const string &meioLoc,const string &prop,const string &tipoHel)
+:Embarcacao(meioLoc,prop,tipoHel)
 {
 	this->nomeNavio = nome;
 	this->pPartida = port1;
@@ -31,43 +33,13 @@ Navio::Navio(const string &nome,const Data &date,const Porto &port1,const Porto 
 }
 
 Navio::Navio(const Navio &n)
+:Embarcacao(n.getMeioLocomocao(),n.getProprietario(),n.getTipHelice())
 {
     this->nomeNavio = n.nomeNavio;
     this->dataPartida = n.dataPartida;
 	this->pPartida = n.pPartida;
 	this->pDestino = n.pDestino;
 	this->liberaNavegacao = n.liberaNavegacao;
-	this->estadoMotor = false;
-	this->nivelVelocidade = 0;
-	this->velocidadeKmHora = 0;
-	this->tempoHoras = 0;
-    tripulacao = 0;
-    nTripulantes = 0;
-	this->tempestadeRelatada = false;
-}
-
-Navio::Navio(const Navio &n,const string &nome,const Data &date)
-{
-    this->nomeNavio = nome;
-    this->dataPartida = date;
-    this->pPartida = n.pPartida;
-    this->pDestino = n.pDestino;
-    this->distanciaKm = n.distanciaKmEntrePortos;
-    this->liberaNavegacao = n.liberaNavegacao;
-	this->estadoMotor = false;
-	this->nivelVelocidade = 0;
-	this->velocidadeKmHora = 0;
-	this->tempoHoras = 0;
-    tripulacao = 0;
-    nTripulantes = 0;
-	this->tempestadeRelatada = false;
-}
-Navio::Navio()
-{
-	this->nomeNavio = "Desconhecido";
-    Data data;
-    this->dataPartida = data;
-	this->liberaNavegacao = false;
 	this->estadoMotor = false;
 	this->nivelVelocidade = 0;
 	this->velocidadeKmHora = 0;

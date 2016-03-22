@@ -8,6 +8,7 @@ class Veiculo
 {
 public:
     Veiculo(const string &,const string &);
+    Veiculo(const Veiculo &);
     ~Veiculo();
     virtual bool mover() = 0;
 	

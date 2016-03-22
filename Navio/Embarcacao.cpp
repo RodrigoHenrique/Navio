@@ -10,6 +10,12 @@ Embarcacao::Embarcacao(const string &meioLoc,const string &prop,const string &ti
     this->tipoHelice = tipoHel;
 }
 
+Embarcacao::Embarcacao(const Embarcacao &e)
+:Veiculo(static_cast<Veiculo> <e>)
+{
+    this->tipoHelice = e.tipoHelice;
+}
+
 Embarcacao::~Embarcacao()
 {
 }

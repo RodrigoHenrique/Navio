@@ -13,12 +13,8 @@ class Cruzeiro : public Navio
     friend ostream &operator<<(ostream &,const Cruzeiro &);
 	
 public:
-    Cruzeiro(const string &,const Data &,const Porto &, const Porto &,const int &);
-    Cruzeiro(const Navio &,const string &,const Data &,const int &);
-    Cruzeiro(const Navio &,const int &);
-    Cruzeiro(const int &);
+    Cruzeiro(const string &,const Data &,const Porto &, const Porto &,const int &,const string &,const string &,const string &);
     Cruzeiro(const Cruzeiro &);
-	
     ~Cruzeiro();
     
     const Cruzeiro &operator=(const Cruzeiro &);
