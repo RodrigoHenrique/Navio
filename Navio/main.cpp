@@ -21,19 +21,27 @@ int main(int argc, char **argv)
 {
 	cout << "Simulando Embarcacoes - Prototipo.\n\n";
 	
-    vector<Embarcacao *> embarcacoes(3);
+    vector<Embarcacao *> embarcacoes(2);
     Data data1(1,12,2014);
     Porto porto1("Belem"),porto2("Lisboa");
-    int passageirosNoPortoCruzeiro = 100;
+    //int passageirosNoPortoCruzeiro = 100;
     
     Submarino *subi = new Submarino("Mar","PropSubmarino","HeliceDeSubmarino","Plutonio");
     Cargueiro *carg = new Cargueiro("CargueiroNomeTeste",data1,porto1,porto2,"Mar","PropCargueiro","Tripla");
-    Cruzeiro *cruz  = new Cruzeiro("CruzeiroNometeste",data1,porto1,porto2,passageirosNoPortoCruzeiro,"Mar","PropCruzeiro","Quadrupla");
+    //Cruzeiro *cruz  = new Cruzeiro("CruzeiroNometeste",data1,porto1,porto2,passageirosNoPortoCruzeiro,"Mar","PropCruzeiro","Quadrupla");
     
     embarcacoes.push_back(subi);
     embarcacoes.push_back(carg);
-    embarcacoes.push_back(cruz);
+    //embarcacoes.push_back(cruz);
     
+    for(int i=0;i<embarcacoes.size();i++)
+    {
+        Submarino *objetoPtr = dynamic_cast<Submarino *> (embarcacoes[i]);
+        if(objetoPtr != 0)
+        {
+            objetoPtr->imprimeViagem();
+        }
+    }
     
     
 	cout << "\n";
