@@ -11,7 +11,7 @@ public:
     Submarino(const string &,const string &,const string &,const string &);
     ~Submarino();
     virtual bool mover();
-	void imprimeViagem(const Submarino &);
+	virtual void imprimeViagem();
 	
 	string getTipoCombustivelNuclear() const;
     bool getSubmerso() const;

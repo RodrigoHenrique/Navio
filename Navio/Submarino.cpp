@@ -22,14 +22,14 @@ bool Submarino::mover()
     else return false;
 }
 
-void Submarino::imprimeViagem(const Submarino &sub)
+void Submarino::imprimeViagem()
 {
-	cout << "PROPRIETARIO : " << sub.getProprietario();
-	cout << ".\nMEIO DE LOCOMOCAO : " << sub.getMeioLocomocao();
+	cout << "PROPRIETARIO : " << getProprietario();
+	cout << ".\nMEIO DE LOCOMOCAO : " << getMeioLocomocao();
 	cout << ".\n-> SUBMARINO";
-	cout << ".\nTIPO DE HELICE : " << sub.getTipHelice();
-	cout << ".\nTIPO DE COMBUSTIVEL NUCLEAR : " <<  sub.getTipoCombustivelNuclear();
-	if(sub.getSubmerso() == true) cout << ".\nSUBMERSO.";
+	cout << ".\nTIPO DE HELICE : " << getTipHelice();
+	cout << ".\nTIPO DE COMBUSTIVEL NUCLEAR : " <<  getTipoCombustivelNuclear();
+	if(getSubmerso() == true) cout << ".\nSUBMERSO.";
 	else cout << ".\nNAO SUBMERSO.";
 }
 

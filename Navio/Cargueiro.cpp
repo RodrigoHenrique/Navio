@@ -123,7 +123,13 @@ void Cargueiro::embarcaCargas()
 }
 
 
-void Cargueiro::imprimeViagem(const Cargueiro &carg)
+void Cargueiro::imprimeViagem()
 {
     cout << "Isso e um cargueiro\n";
+}
+
+bool Cargueiro::mover()
+{
+    cout << "Cargueiro move\n";
+    return true;
 }

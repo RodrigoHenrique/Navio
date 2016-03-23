@@ -13,7 +13,8 @@ public:
     ~Embarcacao();
 	
 	virtual void imprimeViagem() = 0;
-	
+	virtual bool mover() = 0;
+    
 	string getTipHelice() const;
 
 private:

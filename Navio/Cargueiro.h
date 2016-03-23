@@ -24,7 +24,8 @@ public:
 	
 	void setCargas(const string &,const double &);
 	void embarcaCargas();
-    virtual void imprimeViagem(const Cargueiro &);
+    virtual void imprimeViagem();
+    virtual bool mover();
 	
 private:
 	static const double pesoMaximoTON;

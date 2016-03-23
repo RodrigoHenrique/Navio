@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     Porto porto1("Belem"),porto2("Lisboa");
     
     Submarino sub("Mar","PropSubmarino","HeliceDeSubmarino","Plutonio"); //Nao permite um objeto de cclasse abstrata, mas Submarino nao é abstrato
-    Cargueiro("CargueiroNomeTeste",data1,porto1,porto2,"Mar","PropCargueiro","Tripla"); //Idem
+    Cargueiro carg("CargueiroNomeTeste",data1,porto1,porto2,"Mar","PropCargueiro","Tripla"); //Idem
     
 	cout << "\n";
     
