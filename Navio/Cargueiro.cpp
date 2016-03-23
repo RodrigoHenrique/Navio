@@ -10,19 +10,14 @@ using std::cin;
 
 const double pesoMaximoTON = 10;
 
-Cargueiro::Cargueiro(const string &nomeCargueiro,const Data &data,const Porto &pPartida, const Porto &pDestino)
-:Navio(nomeCargueiro,data,pPartida,pDestino)
+Cargueiro::Cargueiro(const string &nomeCargueiro,const Data &data,const Porto &pPartida, const Porto &pDestino,const string &meioLoc,const string &prop,const string &tipoHel)
+:Navio(nomeCargueiro,data,pPartida,pDestino,meioLoc,prop,tipoHel)
 {
 	this->totalCargas = 0;
 	cargas = 0;
 }
 
-Cargueiro::Cargueiro(const Navio &navio,const string &nomeCargueiro,const Data &data)
-:Navio(navio,nomeCargueiro,data)
-{
-	this->totalCargas = 0;
-	cargas = 0;
-}
+/*
 
 Cargueiro::Cargueiro(const Cargueiro &cCopia)
 :Navio(static_cast<Navio> (cCopia))
@@ -30,12 +25,14 @@ Cargueiro::Cargueiro(const Cargueiro &cCopia)
 	this->totalCargas = 0;
 	cargas = 0;
 }
+*/
 
 Cargueiro::~Cargueiro()
 {
 	delete [] cargas;
 }
 
+/*
 ostream &operator<<(ostream &output,const Cargueiro &cargueiroImprime)
 {
 	output << static_cast<Navio> (cargueiroImprime);
@@ -71,6 +68,7 @@ bool Cargueiro::operator==(const Cargueiro &cargueiroCompara) const
 	}
 	else return false;
 }
+*/
 
 void Cargueiro::setCargas(const string &nCarga,const double &peso)
 {
@@ -122,4 +120,10 @@ void Cargueiro::embarcaCargas()
     }while(1);
     system("pause");
     system("cls");
+}
+
+
+void Cargueiro::imprimeViagem(const Cargueiro &carg)
+{
+    cout << "Isso e um cargueiro\n";
 }

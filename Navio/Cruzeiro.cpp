@@ -15,6 +15,7 @@ Cruzeiro::Cruzeiro(const string &nomeCruzeiro,const Data &dataPartida,const Port
     else this->embarqueEfetuado = false;
 }
 
+/*
 Cruzeiro::Cruzeiro(const Cruzeiro &cruzeiroCopia)
 :Navio(static_cast<Navio> (cruzeiroCopia)) //Porque nao se pode usar static_cast aqui, sse naio não ée abstrato? Corrigir os parâmetros dos objetonss no main.cpp: Cruzeiroe e Cruzero Comercial
 {
@@ -22,10 +23,12 @@ Cruzeiro::Cruzeiro(const Cruzeiro &cruzeiroCopia)
 	this->embarqueEfetuado = cruzeiroCopia.embarqueEfetuado;
 }
 
+*/
 Cruzeiro::~Cruzeiro()
 {
 }
 
+/*
 ostream &operator<<(ostream &output,const Cruzeiro &cruzeiroImprime)
 {
     output << static_cast <Navio> (cruzeiroImprime);
@@ -50,7 +53,7 @@ bool Cruzeiro::operator==(const Cruzeiro &cruzeiroCompara) const
         return false;
     }
 }
-
+*/
 bool Cruzeiro::embarque(const int &passageirosNoPorto)
 {
     if(passageirosNoPorto > capacidadeMaxima) return false;
@@ -95,4 +98,9 @@ const void Cruzeiro::dadosdaViagem(const Cruzeiro &c)
     cout << "\n-- Tempo de Viagem [/hrs]: " << c.getTempoHoras() << "\n";
     cout << "-- Data da Partida " << c.getData() << "\n";
 	system("pause");
+}
+
+void Cruzeiro::imprimeViagem(const Cruzeiro &cru)
+{
+    cout << "Isso e um Cruzeiro\n";
 }

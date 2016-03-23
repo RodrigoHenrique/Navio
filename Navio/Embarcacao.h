@@ -9,7 +9,7 @@ class Embarcacao : public Veiculo
 {
 public:
     Embarcacao(const string &,const string &,const string &);
-    Embarcacao(const Embarcacao  &);
+//  Embarcacao(const Embarcacao &);
     ~Embarcacao();
 	
 	virtual void imprimeViagem() = 0;

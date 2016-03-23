@@ -13,20 +13,18 @@ using std::ostream;
 
 class CruzeiroComercial : public Cruzeiro
 {
-    friend ostream &operator<<(ostream &,const CruzeiroComercial &);
+//  friend ostream &operator<<(ostream &,const CruzeiroComercial &);
 	
 public:
-    CruzeiroComercial(const string &,const Data &,const Porto &, const Porto &,const int &);
-    CruzeiroComercial(const Navio &,const string &,const Data &,const int &);
-    CruzeiroComercial(const Navio &,const int &);
-    CruzeiroComercial(const int &);
-	CruzeiroComercial(const CruzeiroComercial &);
+    CruzeiroComercial(const string &,const Data &,const Porto &, const Porto &,const int &,const string &,const string &,const string &);
     ~CruzeiroComercial();
+//	CruzeiroComercial(const CruzeiroComercial &);
     
-    const CruzeiroComercial &operator=(const CruzeiroComercial &);
-    bool operator==(const CruzeiroComercial &) const;
+//  const CruzeiroComercial &operator=(const CruzeiroComercial &);
+//  bool operator==(const CruzeiroComercial &) const;
     
     bool testaTempoHabil();
+    virtual void imprimeViagem(const CruzeiroComercial &);
     
 private:
     static const int tempoMaximo;

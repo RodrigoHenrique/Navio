@@ -11,40 +11,25 @@ using std::cout;
 
 const int CruzeiroComercial::tempoMaximo = 100;
 
-CruzeiroComercial::CruzeiroComercial(const string &nomeCruzeiro,const Data &data,const Porto &porto1, const Porto &porto2,const int &passageiros)
-:Cruzeiro(nomeCruzeiro,data,porto1,porto2,passageiros)
+CruzeiroComercial::CruzeiroComercial(const string &nomeCruzeiro,const Data &data,const Porto &porto1, const Porto &porto2,const int &passageiros,const string &meioLoc,const string &prop,const string &tipoHel)
+:Cruzeiro(nomeCruzeiro,data,porto1,porto2,passageiros,meioLoc,prop,tipoHel)
 {
     this->podeNavegarTempoHabil = false;
 }
 
-CruzeiroComercial::CruzeiroComercial(const Navio &navio,const string &novoNome,const Data &data,const int &passageiros)
-:Cruzeiro(navio,novoNome,data,passageiros)
-{
-    this->podeNavegarTempoHabil = false;
-}
-
-CruzeiroComercial::CruzeiroComercial(const Navio &navio,const int &passageiros)
-:Cruzeiro(navio,passageiros)
-{
-    this->podeNavegarTempoHabil = false;
-}
-
-CruzeiroComercial::CruzeiroComercial(const int &passageiros)
-:Cruzeiro(passageiros)
-{
-    this->podeNavegarTempoHabil = false;
-}
-
+/*
 CruzeiroComercial::CruzeiroComercial(const CruzeiroComercial &cruzeiroComCopia)
 :Cruzeiro(static_cast<Cruzeiro> (cruzeiroComCopia))
 {
 	this->podeNavegarTempoHabil = cruzeiroComCopia.podeNavegarTempoHabil;
 }
+*/
 
 CruzeiroComercial::~CruzeiroComercial()
 {
 }
 
+/*
 ostream &operator<<(ostream &output,const CruzeiroComercial &cruzeiroComImprime)
 {
     output << static_cast <CruzeiroComercial> (cruzeiroComImprime);
@@ -68,6 +53,7 @@ bool CruzeiroComercial::operator==(const CruzeiroComercial &cruzeiroComCompara) 
         return false;
     }
 }
+*/
 
 bool CruzeiroComercial::testaTempoHabil()
 {
@@ -75,4 +61,9 @@ bool CruzeiroComercial::testaTempoHabil()
     int distanciaKm = getDistanciaKm();
     if((distanciaKm/vel) > tempoMaximo) return false;
     return true;
+}
+
+void CruzeiroComercial::imprimeViagem(const CruzeiroComercial &cruCom)
+{
+	cout << "E um cruzeiro comercial.\n";
 }

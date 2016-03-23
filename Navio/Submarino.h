@@ -3,7 +3,7 @@
 #include "Embarcacao.h"
 #include <string>
 
-using namespace std;
+using std::string;
 
 class Submarino : public Embarcacao
 {
@@ -11,7 +11,7 @@ public:
     Submarino(const string &,const string &,const string &,const string &);
     ~Submarino();
     virtual bool mover();
-	virtual void imprimeViagem();
+	void imprimeViagem(const Submarino &);
 	
 	string getTipoCombustivelNuclear() const;
     bool getSubmerso() const;
