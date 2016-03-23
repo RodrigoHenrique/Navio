@@ -24,12 +24,19 @@ int main(int argc, char **argv)
     vector<Embarcacao *> embarcacoes(3);
     Data data1(1,12,2014);
     Porto porto1("Belem"),porto2("Lisboa");
+    int passageirosNoPortoCruzeiro = 100;
     
-    Submarino sub("Mar","PropSubmarino","HeliceDeSubmarino","Plutonio"); //Nao permite um objeto de cclasse abstrata, mas Submarino nao é abstrato
-    Cargueiro carg("CargueiroNomeTeste",data1,porto1,porto2,"Mar","PropCargueiro","Tripla"); //Idem
+    Submarino *subi = new Submarino("Mar","PropSubmarino","HeliceDeSubmarino","Plutonio");
+    Cargueiro *carg = new Cargueiro("CargueiroNomeTeste",data1,porto1,porto2,"Mar","PropCargueiro","Tripla");
+    Cruzeiro *cruz  = new Cruzeiro("CruzeiroNometeste",data1,porto1,porto2,passageirosNoPortoCruzeiro,"Mar","PropCruzeiro","Quadrupla");
+    
+    embarcacoes.push_back(subi);
+    embarcacoes.push_back(carg);
+    embarcacoes.push_back(cruz);
+    
+    
     
 	cout << "\n";
-    
     //delete [] embarcacoes;
 	return 0;
 }

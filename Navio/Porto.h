@@ -19,6 +19,7 @@ public:
 	~Porto();
 	
 	bool operator==(const Porto &) const;
+    bool operator!=(const Porto &) const;
 	//const Porto &operator=(const Porto &); Esse também dá erro.
 	
 	string getNomePorto() const;

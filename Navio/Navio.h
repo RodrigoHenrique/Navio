@@ -35,7 +35,8 @@ public:
     void adicionarTripulacao(const string &);
     const static int capacidadeMaxima;
     
-    string getPortoPartida() const;
+    Porto getPortoPartida() const;
+    Porto getPortoDestino() const;
     string getNomeNavio() const;
     int getNTripulantes() const;
     string getTripulacao(const int &) const;
@@ -47,6 +48,9 @@ public:
     int getDistanciaKm() const;
 	bool getLiberaNavegacao() const;
     bool getTempestadeRelatada() const;
+    
+    virtual void imprimeViagem();
+    virtual bool mover();
 
 private:
     Data dataPartida; 

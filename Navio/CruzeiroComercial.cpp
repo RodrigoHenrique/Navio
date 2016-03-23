@@ -17,19 +17,18 @@ CruzeiroComercial::CruzeiroComercial(const string &nomeCruzeiro,const Data &data
     this->podeNavegarTempoHabil = false;
 }
 
-/*
+
 CruzeiroComercial::CruzeiroComercial(const CruzeiroComercial &cruzeiroComCopia)
 :Cruzeiro(static_cast<Cruzeiro> (cruzeiroComCopia))
 {
 	this->podeNavegarTempoHabil = cruzeiroComCopia.podeNavegarTempoHabil;
 }
-*/
+
 
 CruzeiroComercial::~CruzeiroComercial()
 {
 }
 
-/*
 ostream &operator<<(ostream &output,const CruzeiroComercial &cruzeiroComImprime)
 {
     output << static_cast <CruzeiroComercial> (cruzeiroComImprime);
@@ -53,7 +52,6 @@ bool CruzeiroComercial::operator==(const CruzeiroComercial &cruzeiroComCompara) 
         return false;
     }
 }
-*/
 
 bool CruzeiroComercial::testaTempoHabil()
 {

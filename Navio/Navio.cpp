@@ -335,9 +335,14 @@ bool Navio::tempestade(const Navio &n)
 	else return false;
 }
 
-string Navio::getPortoPartida() const
+Porto Navio::getPortoPartida() const
 {
-	return this->pPartida.getNomePorto();
+	return this->pPartida;
+}
+
+Porto Navio::getPortoDestino() const
+{
+    return this->pDestino;
 }
 
 void Navio::adicionarTripulacao(const string &cargoTripulante)
@@ -420,4 +425,15 @@ bool Navio::getLiberaNavegacao() const
 bool Navio::getTempestadeRelatada() const
 {
 	return this->tempestadeRelatada;
+}
+
+void Navio::imprimeViagem()
+{
+    cout << "Isso e um Navio\n";
+}
+
+bool Navio::mover()
+{
+    cout << "Move Navio\n";
+    return true;
 }

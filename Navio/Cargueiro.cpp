@@ -17,22 +17,19 @@ Cargueiro::Cargueiro(const string &nomeCargueiro,const Data &data,const Porto &p
 	cargas = 0;
 }
 
-/*
-
 Cargueiro::Cargueiro(const Cargueiro &cCopia)
 :Navio(static_cast<Navio> (cCopia))
 {
 	this->totalCargas = 0;
 	cargas = 0;
 }
-*/
 
 Cargueiro::~Cargueiro()
 {
 	delete [] cargas;
 }
 
-/*
+
 ostream &operator<<(ostream &output,const Cargueiro &cargueiroImprime)
 {
 	output << static_cast<Navio> (cargueiroImprime);
@@ -68,7 +65,7 @@ bool Cargueiro::operator==(const Cargueiro &cargueiroCompara) const
 	}
 	else return false;
 }
-*/
+
 
 void Cargueiro::setCargas(const string &nCarga,const double &peso)
 {

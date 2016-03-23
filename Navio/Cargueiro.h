@@ -12,15 +12,15 @@ using std::ostream;
 
 class Cargueiro : public Navio
 {
-//	friend ostream &operator<<(ostream &,const Cargueiro &);
+	friend ostream &operator<<(ostream &,const Cargueiro &);
 	
 public:
 	Cargueiro(const string &,const Data &,const Porto &, const Porto &,const string &,const string &,const string &);
-//  Cargueiro(const Cargueiro &);
+    Cargueiro(const Cargueiro &);
 	~Cargueiro();
 	
-//	const Cargueiro &operator=(const Cargueiro &);
-//	bool operator==(const Cargueiro &) const;
+	const Cargueiro &operator=(const Cargueiro &);
+	bool operator==(const Cargueiro &) const;
 	
 	void setCargas(const string &,const double &);
 	void embarcaCargas();

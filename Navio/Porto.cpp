@@ -34,6 +34,12 @@ bool Porto::operator== (const Porto &portoCompara) const
 	else return false;
 }
 
+bool Porto::operator!= (const Porto &portoCompara) const
+{
+    if(portoCompara == (*this)) return false;
+    else return true;
+}
+
 /*const Porto & Porto::operator=(const Porto &portoAtrib)
 {
 	this->nomePorto = portoAtrib.nomePorto;
