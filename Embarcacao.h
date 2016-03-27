@@ -12,7 +12,7 @@ using std::vector;
 class Embarcacao : public Veiculo
 {
 public:
-	Embarcacao(const string &,const Data &,const string &,const string &,const string &);
+	Embarcacao(const string &,const Data &,const string &,const string &);
 	Embarcacao(const Embarcacao &);
 	~Embarcacao();
 
@@ -27,15 +27,21 @@ public:
 	bool get_navegacao_liberada() const;
 	bool get_rota_definida() const;
 	bool get_tripulacao_definida() const;
+	int get_distancia_km() const;
 	
 	void set_embarcacao_aportada(); //Chaveia na operação de entrada e saída de porto na classe porto.
 	void set_navegacao_liberada();
 	void set_porto_partida(const string &);
-	void set_porto_chegada(const string &);
 	
 	void definir_rota();
 	void definir_tripulacao();
 	void ligar_motores();
+	int definir_velocidade();
+	void piloto_automatico();
+	void piloto_manual();
+	void navegar();
+	void operar();
+	bool viagem_finalizada();
 
 private:
 	string nome_embarcacao;
@@ -57,6 +63,8 @@ private:
 	int tempoHoras;
 	
 	vector<Tripulante> tripulacao;
+	
+	void set_porto_chegada(const string &);
 
 };
 

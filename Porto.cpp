@@ -75,7 +75,14 @@ bool Porto::operator==(const Porto &porto_comparacao)
 
 void Porto::entrada_embarcacao(Embarcacao *embarcacao_chegada)
 {
-	if(this->nome_porto != embarcacao_chegada->get_porto_partida()) return;
+	if(this->nome_porto != embarcacao_chegada->get_porto_partida())
+	{
+		if(this->nome_porto == embarcacao_chegada->get_porto_chegada())
+		{
+			if(embarcacao_chegada->get_distancia_km() != 0) return;
+		}
+		else return;
+	}
 	
 	if(filas_embarcacao.size() >= max_filas) cout << "\nTamanho maximo de filas lotadas atingido.";
 	else
