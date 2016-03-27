@@ -1,0 +1,1 @@
+./Debug/Navio_main.cpp.o ./Debug/Navio_Carga.cpp.o ./Debug/Navio_Data.cpp.o ./Debug/Navio_Embarcacao.cpp.o ./Debug/Navio_Passageiro.cpp.o ./Debug/Navio_Porto.cpp.o ./Debug/Navio_Tripulante.cpp.o ./Debug/Navio_Veiculo.cpp.o   

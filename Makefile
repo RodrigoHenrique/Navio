@@ -1,8 +1,8 @@
 .PHONY: clean All
 
 All:
-	@echo "----------Building project:[ Navio - Debug ]----------"
-	@cd "Navio" && "$(MAKE)" -f  "Navio.mk"
+	@echo "----------Building project:[ SistemaHidroviario - Debug ]----------"
+	@cd "SistemaHidroviario" && "$(MAKE)" -f  "SistemaHidroviario.mk"
 clean:
-	@echo "----------Cleaning project:[ Navio - Debug ]----------"
-	@cd "Navio" && "$(MAKE)" -f  "Navio.mk" clean
+	@echo "----------Cleaning project:[ SistemaHidroviario - Debug ]----------"
+	@cd "SistemaHidroviario" && "$(MAKE)" -f  "SistemaHidroviario.mk" clean
