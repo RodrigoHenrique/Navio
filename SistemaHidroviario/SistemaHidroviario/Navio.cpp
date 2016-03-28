@@ -119,7 +119,7 @@ void Navio::set_passageiros_a_bordo()
 
 void Navio::definir_passageiros(list<Passageiro * > passageiros_navio)
 {
-	if(passageiros_navio.size() > Navio::qde_max_ocupantes) return;
+	if(passageiros_navio.size() > Navio::qde_max_passageiros) return;
 	set_passageiros(passageiros_navio);
 	set_passageiros_a_bordo();
 }

@@ -31,7 +31,11 @@ public:
 	void set_passageiros_a_bordo();
 
 private:
-	const static int qde_max_ocupantes = 500;
+	const static int qde_max_passageiros = 500;
+    const static int qde_max_cargas = 50;
+    const static double peso_max_cargas = 100000;
+    const static int qde_max_mercadorias = 500;
+    const static float valor_RS_max_mercadorias = 1000000;
 	bool passageiros_a_bordo;
 
 };

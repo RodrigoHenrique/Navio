@@ -112,5 +112,7 @@
     <File Name="Navio.cpp"/>
     <File Name="Mercadoria.h"/>
     <File Name="Mercadoria.cpp"/>
+    <File Name="Cruzeiro.h"/>
+    <File Name="Cruzeiro.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
