@@ -26,9 +26,13 @@ public:
 	virtual bool mover();
 	
 	list<Passageiro *> get_passageiros_navio() const;
+	bool get_passageiros_a_bordo() const;
+	
+	void set_passageiros_a_bordo();
 
 private:
 	const static int qde_max_ocupantes = 500;
+	bool passageiros_a_bordo;
 
 };
 

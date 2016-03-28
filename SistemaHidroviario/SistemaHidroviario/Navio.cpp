@@ -3,10 +3,12 @@
 #include <iostream>;
 
 using std::cin;
+using std::cout;
 
 Navio::Navio(const string &nome_embarcacao,const Data &data_registro,const string &proprietario,const string &porto_partida)
 :Embarcacao(nome_embarcacao,data_registro,proprietario,porto_partida)
 {
+	this->passageiros_a_bordo = false;
 }
 
 Navio::~Navio()
@@ -104,18 +106,73 @@ list<Passageiro * > Navio::get_passageiros_navio() const
 	return get_passageiros();
 }
 
+bool Navio::get_passageiros_a_bordo() const
+{
+	return this->passageiros_a_bordo;
+}
+
+void Navio::set_passageiros_a_bordo()
+{
+	if(this->passageiros_a_bordo) this->passageiros_a_bordo = false;
+	else this->passageiros_a_bordo = true;
+}
+
 void Navio::definir_passageiros(list<Passageiro * > passageiros_navio)
 {
 	if(passageiros_navio.size() > Navio::qde_max_ocupantes) return;
 	set_passageiros(passageiros_navio);
+	set_passageiros_a_bordo();
 }
 
 int Navio::definir_velocidade()
 {
-	return -1;
+	if(get_estado_motor())
+	{
+		int nivelVelocidade;
+		cout << "\nMudar nivel de velocidade?\n";
+		cout << "0 -> 0 Km/h\n";
+		cout << "1 -> 2 Km/h\n";
+		cout << "2 -> 4 Km/h\n";
+		cout << "3 -> 8 Km/h\n";
+		cout << "4 -> 16 Km/h\n";
+		cout << "5 -> 32 Km/h\n";
+		cout << "Digite: ";
+		cin >> nivelVelocidade;
+		switch(nivelVelocidade)
+		{
+			case 0:
+				return 0;
+				break;
+			case 1:
+				return 2;
+				break;
+			case 2:
+				return 4;
+				break;
+			case 3:
+				return 8;
+				break;
+			case 4:
+				return 16;
+				break;
+			case 5:
+				return 32;
+				break;
+			 default:
+			 	cout << "\nNivel de velocidade invalido.\n";
+			 	return get_velocidade_km();
+				break;
+		}
+	}
+	else
+	{
+		cout << "\nMotor desligado.\n";
+		return -1;
+	}	
 }
 
 bool Navio::mover()
 {
-	return true;
+	set_navegacao_liberada();
+	return get_passageiros_a_bordo();
 }
