@@ -110,5 +110,7 @@
     <File Name="Veiculo.h"/>
     <File Name="Navio.h"/>
     <File Name="Navio.cpp"/>
+    <File Name="Mercadoria.h"/>
+    <File Name="Mercadoria.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>
