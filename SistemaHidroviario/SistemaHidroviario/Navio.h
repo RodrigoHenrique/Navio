@@ -23,7 +23,6 @@ public:
 	bool operator==(const Navio &) const;
 	bool operator!=(const Navio &) const;
 	
-    virtual void definir_cargas(list<Carga *> );
     virtual void definir_mercadorias(list<Mercadoria * > );
     
 	virtual int definir_velocidade();

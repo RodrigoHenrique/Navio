@@ -114,5 +114,7 @@
     <File Name="Mercadoria.cpp"/>
     <File Name="Cruzeiro.h"/>
     <File Name="Cruzeiro.cpp"/>
+    <File Name="Cargueiro.h"/>
+    <File Name="Cargueiro.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

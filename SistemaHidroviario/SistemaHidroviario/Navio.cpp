@@ -134,13 +134,6 @@ void Navio::inicia_mercadorias_a_bordo()
     this->mercadorias_a_bordo = false;
 }
 
-void Navio::definir_cargas(list<Carga *> cargas_navio)
-{
-    if(cargas_navio.size() > Navio::qde_max_cargas) return;
-    set_cargas(cargas_navio);
-    set_cargas_a_bordo();
-}
-
 void Navio::definir_mercadorias(list<Mercadoria *> mercadorias_navio)
 {
     if(mercadorias_navio.size() > Navio::qde_max_mercadorias) return;

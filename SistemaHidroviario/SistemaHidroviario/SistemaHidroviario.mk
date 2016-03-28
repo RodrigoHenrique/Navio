@@ -63,7 +63,7 @@ AS       := C:/cygwin64/bin/x86_64-pc-cygwin-as.exe
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
 Objects0=$(IntermediateDirectory)/Carga.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Embarcacao.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Passageiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submarino.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tripulante.cpp$(ObjectSuffix) $(IntermediateDirectory)/Veiculo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/Mercadoria.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) 
+	$(IntermediateDirectory)/Mercadoria.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix) 
 
 
 
@@ -189,6 +189,14 @@ $(IntermediateDirectory)/Cruzeiro.cpp$(DependSuffix): Cruzeiro.cpp
 
 $(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix): Cruzeiro.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Cruzeiro.cpp$(PreprocessSuffix) "Cruzeiro.cpp"
+
+$(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix): Cargueiro.cpp $(IntermediateDirectory)/Cargueiro.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/SistemaHidroviario/SistemaHidroviario/Cargueiro.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Cargueiro.cpp$(DependSuffix): Cargueiro.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Cargueiro.cpp$(DependSuffix) -MM "Cargueiro.cpp"
+
+$(IntermediateDirectory)/Cargueiro.cpp$(PreprocessSuffix): Cargueiro.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Cargueiro.cpp$(PreprocessSuffix) "Cargueiro.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
