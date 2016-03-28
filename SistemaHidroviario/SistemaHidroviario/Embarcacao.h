@@ -7,6 +7,8 @@
 #include "Tripulante.h"
 #include <list>
 #include "Passageiro.h"
+#include "Carga.h"
+#include "Mercadoria.h"
 
 using std::string;
 using std::vector;
@@ -34,6 +36,8 @@ public:
 	
 	vector<Tripulante> get_tripulantes() const;
 	list<Passageiro *> get_passageiros() const;
+    list<Carga *> get_cargas() const;
+    list<Mercadoria *> get_mercadorias() const;
 	
 	void set_embarcacao_aportada(); //Chaveia na operação de entrada e saída de porto na classe porto.
 	void set_navegacao_liberada();
@@ -52,6 +56,8 @@ public:
 	
 	void set_tripulantes(const vector<Tripulante> &);
 	void set_passageiros(const list<Passageiro *> &);
+    void set_cargas(const list<Carga *> &);
+    void set_mercadorias(const list<Mercadoria *> &);
 	
 	void definir_rota();
 	void definir_tripulacao();
@@ -59,6 +65,8 @@ public:
 	
 	virtual int definir_velocidade() = 0;
 	virtual void definir_passageiros(list<Passageiro *> ) = 0;
+    virtual void definir_cargas(list<Carga *> ) = 0;
+    virtual void definir_mercadorias(list<Mercadoria * > ) = 0;
 	
 	void piloto_automatico();
 	void piloto_manual();
@@ -86,6 +94,8 @@ private:
 	
 	vector<Tripulante> tripulacao;
 	list<Passageiro *> passageiros;
+    list<Carga *> cargas;
+    list<Mercadoria *> mercadorias;
 	
 
 };

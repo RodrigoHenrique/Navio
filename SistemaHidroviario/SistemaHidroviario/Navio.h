@@ -22,13 +22,20 @@ public:
 	bool operator==(const Navio &) const;
 	
 	virtual void definir_passageiros(list<Passageiro *> );
+    virtual void definir_cargas(list<Carga *> );
+    virtual void definir_mercadorias(list<Mercadoria * > );
+    
 	virtual int definir_velocidade();
 	virtual bool mover();
 	
 	list<Passageiro *> get_passageiros_navio() const;
 	bool get_passageiros_a_bordo() const;
+    bool get_cargas_a_bordo() const;
+    bool get_mercadorias_a_bordo() const;
 	
 	void set_passageiros_a_bordo();
+    void set_cargas_a_bordo();
+    void set_mercadorias_a_bordo();
 
 private:
 	const static int qde_max_passageiros = 500;
@@ -37,6 +44,8 @@ private:
     const static int qde_max_mercadorias = 500;
     const static float valor_RS_max_mercadorias = 1000000;
 	bool passageiros_a_bordo;
+    bool cargas_a_bordo;
+    bool mercadorias_a_bordo;
 
 };
 

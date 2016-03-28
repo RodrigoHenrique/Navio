@@ -30,6 +30,9 @@ Embarcacao::Embarcacao(const string &nome_embarcacao,const Data &data_registro,c
 Embarcacao::~Embarcacao()
 {
 	tripulacao.clear();
+    passageiros.clear();
+    cargas.clear();
+    mercadorias.clear();
 }
 
 /*
@@ -108,6 +111,16 @@ vector<Tripulante> Embarcacao::get_tripulantes() const
 list<Passageiro *> Embarcacao::get_passageiros() const
 {
 	return passageiros;
+}
+
+list<Carga *> Embarcacao::get_cargas() const
+{
+    return cargas;
+}
+
+list<Mercadoria *> Embarcacao::get_mercadorias() const
+{
+    return mercadorias;
 }
 
 void Embarcacao::set_embarcacao_aportada()
@@ -189,6 +202,16 @@ void Embarcacao::set_tripulantes(const vector<Tripulante> &trip)
 void Embarcacao::set_passageiros(const list<Passageiro *> &pass)
 {
 	this->passageiros = pass;
+}
+
+void Embarcacao::set_cargas(const list<Carga *> &carg)
+{
+    this->cargas = carg;
+}
+
+void Embarcacao::set_mercadorias(const list<Mercadoria *> &merc)
+{
+    this->mercadorias = merc;
 }
 
 void Embarcacao::definir_rota()

@@ -8,7 +8,6 @@ using std::cout;
 Navio::Navio(const string &nome_embarcacao,const Data &data_registro,const string &proprietario,const string &porto_partida)
 :Embarcacao(nome_embarcacao,data_registro,proprietario,porto_partida)
 {
-	this->passageiros_a_bordo = false;
 }
 
 Navio::~Navio()
@@ -117,11 +116,37 @@ void Navio::set_passageiros_a_bordo()
 	else this->passageiros_a_bordo = true;
 }
 
+void Navio::set_cargas_a_bordo()
+{
+    if(this->cargas_a_bordo) this->cargas_a_bordo = false;
+    else this->cargas_a_bordo = true;
+}
+
+void Navio::set_mercadorias_a_bordo()
+{
+    if(this->mercadorias_a_bordo) this->mercadorias_a_bordo = false;
+    else this->mercadorias_a_bordo = true;
+}
+
 void Navio::definir_passageiros(list<Passageiro * > passageiros_navio)
 {
 	if(passageiros_navio.size() > Navio::qde_max_passageiros) return;
 	set_passageiros(passageiros_navio);
 	set_passageiros_a_bordo();
+}
+
+void Navio::definir_cargas(list<Carga *> cargas_navio)
+{
+    if(cargas_navio.size() > Navio::qde_max_cargas) return;
+    set_cargas(cargas_navio);
+    set_cargas_a_bordo();
+}
+
+void Navio::definir_mercadorias(list<Mercadoria *> mercadorias_navio)
+{
+    if(mercadorias_navio.size() > Navio::qde_max_mercadorias) return;
+    set_mercadorias(mercadorias_navio);
+    set_mercadorias_a_bordo();
 }
 
 int Navio::definir_velocidade()
