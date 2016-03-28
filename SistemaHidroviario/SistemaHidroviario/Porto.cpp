@@ -292,3 +292,8 @@ string Porto::get_nome_porto() const
 {
 	return this->nome_porto;
 }
+
+vector<queue < Embarcacao * > > Porto::get_filas_embarcacao() const
+{
+    return filas_embarcacao;
+}

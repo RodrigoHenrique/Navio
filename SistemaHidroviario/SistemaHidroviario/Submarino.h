@@ -22,7 +22,6 @@ public:
 	
 	virtual bool mover();
 	virtual int definir_velocidade();
-	virtual void definir_passageiros(list<Passageiro *> );
 
 private:
 	string tipo_combustivel;

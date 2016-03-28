@@ -41,12 +41,14 @@ public:
     void saida_mercadorias(list <Mercadoria *> *); //O parametro é uma embarcacao que receberá n mercadorias de uma lista do porto, armazendando-os em uma lista dele mesmo.
 	
 	string get_nome_porto() const;
+    
+    vector<queue <Embarcacao *> > get_filas_embarcacao() const;
 	
 private:
 	string nome_porto;
 	vector<queue <Embarcacao *> > filas_embarcacao;
 	const static int max_filas = 10;
-	const static int max_embarcacoes_por_fila = 5;
+	const static int max_embarcacoes_por_fila = 1;
 	list<Passageiro *> passageiros_porto;
 	const static int max_passageiros = 1000;
     list<Carga *> cargas_porto;

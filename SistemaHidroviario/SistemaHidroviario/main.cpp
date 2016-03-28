@@ -16,10 +16,13 @@
 
 using std::list;
 using std::cout;
+using std::cin;
 using std::string;
 
 int main(int argc, char** argv) {
 	
+    
+    
 	Porto porto_teste("PedraDoDragao");
     Porto porto_chegada("PortoReal");
     
@@ -67,51 +70,40 @@ int main(int argc, char** argv) {
     porto_teste.entrada_embarcacao(cargueiro);
     porto_teste.entrada_embarcacao(mercante);
     
-    cruzeiro->definir_rota();
-    porto_teste.saida_embarcacao(cruzeiro);
-    cruzeiro->definir_tripulacao();
+    for(size_t i =0;i < porto_teste.get_filas_embarcacao().size();i++)
+    {
+        Cruzeiro *derivedPtr = dynamic_cast<Cruzeiro *> (porto_teste.get_filas_embarcacao()[i].front());
+        if(derivedPtr != 0)
+        {
+            cruzeiro->definir_rota();
+            porto_teste.saida_embarcacao(cruzeiro);
     
-    list<Passageiro *> passageiros_embarque_cruzeiro;
+            cout << porto_teste;
+            cout << "\n";
     
-    porto_teste.saida_passageiros(&passageiros_embarque_cruzeiro);
+            cruzeiro->definir_tripulacao();
     
-    cruzeiro->definir_passageiros(passageiros_embarque_cruzeiro);
+            list<Passageiro *> passageiros_embarque_cruzeiro;
     
-    cruzeiro->ligar_motores();
-    cruzeiro->navegar();
+            porto_teste.saida_passageiros(&passageiros_embarque_cruzeiro);
     
-    porto_chegada.entrada_embarcacao(cruzeiro);
-    cruzeiro->viagem_finalizada();
-    list<Passageiro *> passageiros_desembarque_cruzeiro = cruzeiro->get_passageiros();
-    porto_chegada.entrada_passageiros(&passageiros_desembarque_cruzeiro);
+            cruzeiro->definir_passageiros(passageiros_embarque_cruzeiro);
     
-    cout << porto_teste;
-    cout << "\n";
+            cruzeiro->ligar_motores();
+            cruzeiro->navegar();
     
-    cargueiro->definir_rota();
-    porto_teste.saida_embarcacao(cargueiro);
-    cargueiro->definir_tripulacao();
+            porto_chegada.entrada_embarcacao(cruzeiro);
+            cruzeiro->viagem_finalizada();
+            list<Passageiro *> passageiros_desembarque_cruzeiro = cruzeiro->get_passageiros();
+            porto_chegada.entrada_passageiros(&passageiros_desembarque_cruzeiro);
     
-    list<Carga *> cargas_embarque_cargueiro;
-    
-    porto_teste.saida_cargas(&cargas_embarque_cargueiro);
-    
-    cargueiro->definir_cargas(cargas_embarque_cargueiro);
-    
-    cargueiro->ligar_motores();
-    cargueiro->navegar();
-    
-    list<Carga *> cargas_desembarque_cargueiro = cargueiro->get_cargas();
-    porto_chegada.entrada_cargas(&cargas_desembarque_cargueiro);
-    
-    cout << porto_teste;
-    cout << porto_chegada;
-    
-	pass_teste.clear();
-    carg_teste.clear();
-    merc_teste.clear();
-    passageiros_embarque_cruzeiro.clear();
-    passageiros_desembarque_cruzeiro.clear();
+            pass_teste.clear();
+            carg_teste.clear();
+            merc_teste.clear();
+            passageiros_embarque_cruzeiro.clear();
+            passageiros_desembarque_cruzeiro.clear();
+        }
+    }
     
 	return 0;
 }
