@@ -22,8 +22,6 @@ public:
 	const Navio &operator=(const Navio &);
 	bool operator==(const Navio &) const;
 	bool operator!=(const Navio &) const;
-	
-    virtual void definir_mercadorias(list<Mercadoria * > );
     
 	virtual int definir_velocidade();
 	virtual bool mover();

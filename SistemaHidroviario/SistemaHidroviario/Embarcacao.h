@@ -64,7 +64,6 @@ public:
 	void ligar_motores();
 	
 	virtual int definir_velocidade() = 0;
-    virtual void definir_mercadorias(list<Mercadoria * > ) = 0;
 	
 	void piloto_automatico();
 	void piloto_manual();

@@ -134,13 +134,6 @@ void Navio::inicia_mercadorias_a_bordo()
     this->mercadorias_a_bordo = false;
 }
 
-void Navio::definir_mercadorias(list<Mercadoria *> mercadorias_navio)
-{
-    if(mercadorias_navio.size() > Navio::qde_max_mercadorias) return;
-    set_mercadorias(mercadorias_navio);
-    set_mercadorias_a_bordo();
-}
-
 int Navio::definir_velocidade()
 {
 	if(get_estado_motor())
