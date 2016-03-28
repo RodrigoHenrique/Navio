@@ -11,6 +11,7 @@ class Mercadoria
     friend ostream &operator<<(ostream &,const Mercadoria &);
     
 public:
+    Mercadoria();
     Mercadoria(const string &,const int &,const float &);
     Mercadoria(const Mercadoria &);
     ~Mercadoria();

@@ -7,6 +7,8 @@
 #include "Submarino.h"
 #include "Navio.h"
 #include "Passageiro.h"
+#include "Carga.h"
+#include "Mercadoria.h"
 #include "list"
 
 using std::list;
@@ -27,6 +29,32 @@ int main(int argc, char** argv) {
 	
 	porto_teste.entrada_passageiros(&pass_teste);
 	
+    list<Carga *> carg_teste;
+    
+    for(int i=0;i<90;i++)
+    {
+        Carga *carg = new Carga();
+        carg_teste.push_back(carg);
+    }
+    
+    porto_teste.entrada_cargas(&carg_teste);
+    
+    
+    list<Mercadoria *> merc_teste;
+    
+    for(int i=0;i<999;i++)
+    {
+        Mercadoria *merc = new Mercadoria();
+        merc_teste.push_back(merc);
+    }
+    
+    porto_teste.entrada_mercadorias(&merc_teste);
+    
+    
+    
+    
+    
+    /*
 	Porto porto_copia("PortoReal");
 	
 	Data data_teste(12,12,2012);
@@ -39,7 +67,6 @@ int main(int argc, char** argv) {
 	
 	
 	
-	/*
 	Submarino *embarcacao_teste1 = new Submarino("Balerion",data_teste,"Rodrigo",porto_teste.get_nome_porto(),"Plutonio");
 	Submarino *embarcacao_teste2 = new Submarino("Meraxes",data_teste,"Rodrigo",porto_teste.get_nome_porto(),"Neptunio");
 	Submarino *embarcacao_teste3 = new Submarino("Vhagar",data_teste,"Rodrigo",porto_teste.get_nome_porto(),"Tritio");
@@ -68,5 +95,7 @@ int main(int argc, char** argv) {
 	
 	cout << porto_teste;
 	pass_teste.clear();
+    carg_teste.clear();
+    merc_teste.clear();
 	return 0;
 }

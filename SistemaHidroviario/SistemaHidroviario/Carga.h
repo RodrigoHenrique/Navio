@@ -11,6 +11,7 @@ class Carga
 	friend ostream &operator<<(ostream &,const Carga &);
 	
 public:
+    Carga();
 	Carga(const string &,const double &);
 	Carga(const Carga &);
 	~Carga();

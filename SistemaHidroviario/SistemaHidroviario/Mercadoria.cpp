@@ -1,5 +1,12 @@
 #include "Mercadoria.h"
 
+Mercadoria::Mercadoria()
+{
+    this->nome_mercadoria = "Desconhecida";
+    this->quantidade = 0;
+    this->valor_RS = 0;
+}
+
 Mercadoria::Mercadoria(const string &nome_mercadoria,const int &quantidade,const float &valor_RS)
 {
     set_nome_mercadoria(nome_mercadoria);

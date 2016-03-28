@@ -7,6 +7,8 @@
 #include <iostream>
 #include "Passageiro.h"
 #include "Embarcacao.h"
+#include "Carga.h"
+#include "Mercadoria.h"
 
 using std::vector;
 using std::queue;
@@ -31,6 +33,12 @@ public:
 	
 	void entrada_passageiros(list <Passageiro *> *); //O parametro é uma lista de passageiros que é acrescentada a lista presente no porto
 	void saida_passageiros(list <Passageiro *> *); //O parametro é uma embarcacao que receberá n passageiros de uma lista do porto, armazendando-os em uma lista dele mesmo.
+    
+    void entrada_cargas(list <Carga *> *); // O parametro é uma lista de cargas que é acrescentada a lista presente no porto
+    void saida_cargas(list <Carga *> *); //O parametro é uma embarcacao que receberá n cargas de uma lista do porto, armazendando-os em uma lista dele mesmo.
+    
+    void entrada_mercadorias(list <Mercadoria *> *); // O parametro é uma lista de mercadorias que é acrescentada a lista presente no porto
+    void saida_mercadorias(list <Mercadoria *> *); //O parametro é uma embarcacao que receberá n mercadorias de uma lista do porto, armazendando-os em uma lista dele mesmo.
 	
 	string get_nome_porto() const;
 	
@@ -41,6 +49,10 @@ private:
 	const static int max_embarcacoes_por_fila = 5;
 	list<Passageiro *> passageiros_porto;
 	const static int max_passageiros = 1000;
+    list<Carga *> cargas_porto;
+    const static int max_cargas = 100;
+    list<Mercadoria *> mercadorias_porto;
+    const static int max_mercadorias = 1000;
 	
 };
 

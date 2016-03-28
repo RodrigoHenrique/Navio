@@ -40,21 +40,51 @@ ostream &operator<<(ostream &output,Porto &porto_imprime)
 		}
 	}
 	
-	output << "\nQde de passageiros: " << porto_imprime.passageiros_porto.size();
+	output << "\n\nQde de passageiros: " << porto_imprime.passageiros_porto.size();
 	output << "\nQde de lugares de espera disponiveis para passageiros: " << Porto::max_passageiros - porto_imprime.passageiros_porto.size();
 	
 	int j;
 	cout << "\nImprimir a lista de passageiros deste porto? <digite 1 - sim> : ";
 	cin >> j;
 	
+	if(j == 1)
+    {
+        list<Passageiro *> ::iterator k;
+        for(k=porto_imprime.passageiros_porto.begin();k!=porto_imprime.passageiros_porto.end();k++)
+        {
+            output << "\n " << *(*k);
+        }
+    }
+    
+    output << "\nQde de cargas: " << porto_imprime.cargas_porto.size();
+	output << "\nQde de lugares de espera disponiveis para cargas: " << Porto::max_cargas - porto_imprime.cargas_porto.size();
+	
+	cout << "\nImprimir a lista de cargas deste porto? <digite 1 - sim> : ";
+	cin >> j;
+	
+	if(j == 1)
+    {
+        list<Carga *> ::iterator l;
+        for(l=porto_imprime.cargas_porto.begin();l!=porto_imprime.cargas_porto.end();l++)
+        {
+            output << "\n " << *(*l);
+        }
+    }
+	
+    output << "\nQde de mercadorias: " << porto_imprime.mercadorias_porto.size();
+	output << "\nQde de lugares de espera disponiveis para mercadorias: " << Porto::max_mercadorias - porto_imprime.mercadorias_porto.size();
+	
+	cout << "\nImprimir a lista de mercadorias deste porto? <digite 1 - sim> : ";
+	cin >> j;
+	
 	if(j != 1) return output;
 	
-	list<Passageiro *> ::iterator k;
-	for(k=porto_imprime.passageiros_porto.begin();k!=porto_imprime.passageiros_porto.end();k++)
+	list<Mercadoria *> ::iterator m;
+	for(m=porto_imprime.mercadorias_porto.begin();m!=porto_imprime.mercadorias_porto.end();m++)
 	{
-		output << "\n " << *(*k);
+		output << "\n " << *(*m);
 	}
-	
+    
 	return output;
 }
 
@@ -177,7 +207,7 @@ void Porto::saida_passageiros(list<Passageiro *> *passageiros_saida)
 	if(!passageiros_porto.empty())
 	{
 		int i;
-		cout << "\nQuantos passageiros embarcarao? <digite um inteiro positivo> : ";
+		cout << "\nQuantos passageiros embarcarao? <digite um inteiro positivo> : "; // Em linhas semelhantes a essa, se o numero de passageiros/cargas/mercadorias exceder a quantidade existente no porto, entao serao embarcados todos os elementos requeridos na embarcação pedinte.
 		cin >> i;
 		
 		list<Passageiro *> ::iterator k;
@@ -191,6 +221,68 @@ void Porto::saida_passageiros(list<Passageiro *> *passageiros_saida)
 		}
 		
 	}
+}
+
+void Porto::entrada_cargas(list<Carga *> *cargas_entrada)
+{
+    if(cargas_porto.size() + cargas_entrada->size() > max_cargas) return;
+    list<Carga *> ::iterator j;
+    
+    for(j=cargas_entrada->begin();j!=cargas_entrada->end();j++)
+    {
+        cargas_porto.push_back(*j);
+    }
+}
+
+void Porto::saida_cargas(list<Carga *> *cargas_saida)
+{
+    if(!cargas_porto.empty())
+    {
+        int i;
+        cout << "\nQuantas cargas embarcarao? <digite um inteiro positivo> : ";
+        cin >> i;
+        
+        list<Carga *> ::iterator k;
+        k = cargas_porto.begin();
+        while(i >= 0)
+        {
+            if(k == cargas_porto.end()) break;
+            cargas_saida->push_back(*k);
+            k++;
+            i--;
+        }
+    }
+}
+
+void Porto::entrada_mercadorias(list<Mercadoria *> *mercadorias_entrada)
+{
+    if(mercadorias_porto.size() + mercadorias_entrada->size() > max_mercadorias) return;
+    list<Mercadoria *> ::iterator j;
+    
+    for(j=mercadorias_entrada->begin();j!=mercadorias_entrada->end();j++)
+    {
+        mercadorias_porto.push_back(*j);
+    }
+}
+
+void Porto::saida_mercadorias(list<Mercadoria *> *mercadorias_saida)
+{
+    if(!mercadorias_porto.empty())
+    {
+        int i;
+        cout << "\nQuantas mercadorias embarcarao? <digite um inteiro positivo> : ";
+        cin >> i;
+        
+        list<Mercadoria *> ::iterator k;
+        k = mercadorias_porto.begin();
+        while(i >= 0)
+        {
+            if(k == mercadorias_porto.end()) break;
+            mercadorias_saida->push_back(*k);
+            k++;
+            i--;
+        }
+    }
 }
 
 string Porto::get_nome_porto() const

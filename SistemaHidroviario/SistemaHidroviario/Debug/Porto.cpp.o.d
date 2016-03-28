@@ -1,5 +1,5 @@
 Debug/Porto.cpp.o: Porto.cpp Porto.h Passageiro.h Embarcacao.h Veiculo.h \
- Data.h Tripulante.h
+ Data.h Tripulante.h Carga.h Mercadoria.h
 
 Porto.h:
 
@@ -12,3 +12,7 @@ Veiculo.h:
 Data.h:
 
 Tripulante.h:
+
+Carga.h:
+
+Mercadoria.h:

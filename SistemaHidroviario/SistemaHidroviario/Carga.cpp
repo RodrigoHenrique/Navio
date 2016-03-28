@@ -3,10 +3,16 @@
 
 using std::string;
 
+Carga::Carga()
+{
+    set_nome_carga("Desconhecido");
+    set_peso(1);
+}
+
 Carga::Carga(const string &nome_carga,const double &peso)
 {
-    set_nome_carga(nome_carga);
-    set_peso(peso);
+    this->nome_carga = nome_carga;
+    this->peso = peso;
 }
 
 Carga::Carga(const Carga &cargaCopia)
@@ -20,7 +26,7 @@ Carga::~Carga()
 
 ostream &operator<<(ostream &output,const Carga &cargaImprime)
 {
-	output << "NOME DA CARGA: " << cargaImprime.nome_carga << "\nPESO: " << cargaImprime.peso;
+	output << "NOME DA CARGA: " << cargaImprime.get_nome_carga() << "\nPESO: " << cargaImprime.get_peso();
 	return output;
 }
 
@@ -55,7 +61,7 @@ double Carga::get_peso() const
 
 void Carga::set_nome_carga(const string &nomeCarga)
 {
-	this->nome_carga = nome_carga;
+	this->nome_carga = "Desconhecido";
 }
 
 void Carga::set_peso(const double &peso)
