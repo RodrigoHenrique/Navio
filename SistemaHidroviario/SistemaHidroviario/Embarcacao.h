@@ -5,9 +5,12 @@
 #include <vector>
 #include "Data.h"
 #include "Tripulante.h"
+#include <list>
+#include "Passageiro.h"
 
 using std::string;
 using std::vector;
+using std::list;
 
 class Embarcacao : public Veiculo
 {	
@@ -30,6 +33,7 @@ public:
 	int get_tempo_decorrido() const;
 	
 	vector<Tripulante> get_tripulantes() const;
+	list<Passageiro *> get_passageiros() const;
 	
 	void set_embarcacao_aportada(); //Chaveia na operação de entrada e saída de porto na classe porto.
 	void set_navegacao_liberada();
@@ -47,12 +51,14 @@ public:
 	void set_tempo_decorrido(const int &);
 	
 	void set_tripulantes(const vector<Tripulante> &);
+	void set_passageiros(const list<Passageiro *> &);
 	
 	void definir_rota();
 	void definir_tripulacao();
 	void ligar_motores();
 	
 	virtual int definir_velocidade() = 0;
+	virtual void definir_passageiros(list<Passageiro *> ) = 0;
 	
 	void piloto_automatico();
 	void piloto_manual();
@@ -79,6 +85,8 @@ private:
 	int tempoHoras;
 	
 	vector<Tripulante> tripulacao;
+	list<Passageiro *> passageiros;
+	
 
 };
 

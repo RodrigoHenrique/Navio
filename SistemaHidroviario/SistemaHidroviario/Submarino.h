@@ -3,6 +3,7 @@
 #include <Embarcacao.h>
 #include <string>
 #include <iostream>
+#include "Passageiro.h"
 
 using std::string;
 using std::ostream;
@@ -21,6 +22,7 @@ public:
 	
 	virtual bool mover();
 	virtual int definir_velocidade();
+	virtual void definir_passageiros(list<Passageiro *> );
 
 private:
 	string tipo_combustivel;

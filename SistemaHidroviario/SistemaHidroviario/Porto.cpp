@@ -39,6 +39,16 @@ ostream &operator<<(ostream &output,Porto &porto_imprime)
 			porto_imprime.filas_embarcacao[i].push(aux);
 		}
 	}
+	
+	output << "\nQde de passageiros: " << porto_imprime.passageiros_porto.size();
+	output << "\nQde de lugares de espera disponiveis para passageiros: " << Porto::max_passageiros - porto_imprime.passageiros_porto.size();
+	
+	list<Passageiro *> ::iterator k;
+	for(k=porto_imprime.passageiros_porto.begin();k!=porto_imprime.passageiros_porto.end();k++)
+	{
+		output << " " << *k << "\n";
+	}
+	
 	return output;
 }
 
@@ -142,6 +152,38 @@ void Porto::saida_embarcacao(Embarcacao *embarcacao_saida)
 			filas_embarcacao[j].pop();
 			cout << "\n*Desaportado.\n";
 		}
+	}
+}
+
+void Porto::entrada_passageiros(list<Passageiro *> *passageiros_entrada)
+{
+	if(passageiros_porto.size() + passageiros_entrada->size() > max_passageiros) return;
+	list<Passageiro *> ::iterator j;
+	
+	for(j=passageiros_entrada->begin();j!=passageiros_entrada->end();j++)
+	{
+		passageiros_porto.push_back(*j);
+	}
+}
+
+void Porto::saida_passageiros(list<Passageiro *> *passageiros_saida)
+{
+	if(!passageiros_porto.empty())
+	{
+		int i;
+		cout << "\nQuantos passageiros embarcarao? <digite um inteiro positivo> : ";
+		cin >> i;
+		
+		list<Passageiro *> ::iterator k;
+		k = passageiros_porto.begin();
+		while(i >= 0)
+		{
+			if(k == passageiros_porto.end()) break;
+			passageiros_saida->push_back(*k);
+			k++;
+			i--;
+		}
+		
 	}
 }
 

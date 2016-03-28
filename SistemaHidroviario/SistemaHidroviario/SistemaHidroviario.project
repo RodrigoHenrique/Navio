@@ -108,5 +108,7 @@
     <File Name="Tripulante.h"/>
     <File Name="Veiculo.cpp"/>
     <File Name="Veiculo.h"/>
+    <File Name="Navio.h"/>
+    <File Name="Navio.cpp"/>
   </VirtualDirectory>
 </CodeLite_Project>

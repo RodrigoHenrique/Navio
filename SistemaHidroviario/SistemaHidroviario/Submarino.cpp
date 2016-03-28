@@ -137,3 +137,9 @@ int Submarino::definir_velocidade()
 		return -1;
 	}	
 }
+
+void Submarino::definir_passageiros(list<Passageiro *> passageiros_submarino)
+{
+	list<Passageiro *> pass;
+	set_passageiros(pass);
+}

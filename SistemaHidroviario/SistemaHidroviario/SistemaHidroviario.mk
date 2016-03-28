@@ -62,7 +62,8 @@ AS       := C:/TDM-GCC-32/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
-Objects0=$(IntermediateDirectory)/Carga.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Embarcacao.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Passageiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submarino.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tripulante.cpp$(ObjectSuffix) $(IntermediateDirectory)/Veiculo.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/Carga.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Embarcacao.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Passageiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submarino.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tripulante.cpp$(ObjectSuffix) $(IntermediateDirectory)/Veiculo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) \
+	
 
 
 
@@ -164,6 +165,14 @@ $(IntermediateDirectory)/Veiculo.cpp$(DependSuffix): Veiculo.cpp
 
 $(IntermediateDirectory)/Veiculo.cpp$(PreprocessSuffix): Veiculo.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Veiculo.cpp$(PreprocessSuffix) "Veiculo.cpp"
+
+$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix): Navio.cpp $(IntermediateDirectory)/Navio.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/Rodrigo/git/Navio/SistemaHidroviario/SistemaHidroviario/Navio.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/Navio.cpp$(DependSuffix): Navio.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/Navio.cpp$(DependSuffix) -MM "Navio.cpp"
+
+$(IntermediateDirectory)/Navio.cpp$(PreprocessSuffix): Navio.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Navio.cpp$(PreprocessSuffix) "Navio.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

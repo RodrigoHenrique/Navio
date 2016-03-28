@@ -105,6 +105,11 @@ vector<Tripulante> Embarcacao::get_tripulantes() const
 	return tripulacao;
 }
 
+list<Passageiro *> Embarcacao::get_passageiros() const
+{
+	return passageiros;
+}
+
 void Embarcacao::set_embarcacao_aportada()
 {
 	if(this->embarcacao_aportada) this->embarcacao_aportada = false;
@@ -180,6 +185,10 @@ void Embarcacao::set_tempo_decorrido(const int &tempo_decorrido)
 void Embarcacao::set_tripulantes(const vector<Tripulante> &trip)
 {
 	this->tripulacao = trip;
+}
+void Embarcacao::set_passageiros(const list<Passageiro *> &pass)
+{
+	this->passageiros = pass;
 }
 
 void Embarcacao::definir_rota()
