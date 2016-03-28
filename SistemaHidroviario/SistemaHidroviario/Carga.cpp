@@ -3,8 +3,10 @@
 
 using std::string;
 
-Carga::Carga()
+Carga::Carga(const string &nome_carga,const double &peso)
 {
+    set_nome_carga(nome_carga);
+    set_peso(peso);
 }
 
 Carga::Carga(const Carga &cargaCopia)
