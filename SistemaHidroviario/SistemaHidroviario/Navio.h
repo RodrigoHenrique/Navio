@@ -4,15 +4,22 @@
 #include <string>
 #include "Passageiro.h"
 #include <list>
+#include <iostream>
 
 using std::string;
 using std::list;
+using std::ostream;
 
 class Navio : public Embarcacao
 {
+	friend ostream &operator<<(ostream &,const Navio &);
+	
 public:
 	Navio(const string &,const Data &,const string &,const string &);
 	~Navio();
+	
+	const Navio &operator=(const Navio &);
+	bool operator==(const Navio &) const;
 	
 	virtual void definir_passageiros(list<Passageiro *> );
 	virtual int definir_velocidade();

@@ -5,8 +5,8 @@ using std::string;
 
 Passageiro::Passageiro()
 {
-	this->nome = "NaoIdentificado";
-	this->sobrenome = "NaoIdentificado";
+	this->nome = "Nao";
+	this->sobrenome = "Identificado";
 	this->idade = 0;
 	this->peso = 0.0;
 }
@@ -51,6 +51,12 @@ bool Passageiro::operator==(const Passageiro &passageiro_comparacao) const
 	if(passageiro_comparacao.idade != idade) return false;
 	if(passageiro_comparacao.peso != peso) return false;
 	return true;
+}
+
+bool Passageiro::operator!=(const Passageiro &passageiro_comparacao) const
+{
+	if((*this) == passageiro_comparacao) return false;
+	else return true;
 }
 
 string Passageiro::get_nome() const

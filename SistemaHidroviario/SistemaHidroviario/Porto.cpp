@@ -43,10 +43,16 @@ ostream &operator<<(ostream &output,Porto &porto_imprime)
 	output << "\nQde de passageiros: " << porto_imprime.passageiros_porto.size();
 	output << "\nQde de lugares de espera disponiveis para passageiros: " << Porto::max_passageiros - porto_imprime.passageiros_porto.size();
 	
+	int j;
+	cout << "\nImprimir a lista de passageiros deste porto? <digite 1 - sim> : ";
+	cin >> j;
+	
+	if(j != 1) return output;
+	
 	list<Passageiro *> ::iterator k;
 	for(k=porto_imprime.passageiros_porto.begin();k!=porto_imprime.passageiros_porto.end();k++)
 	{
-		output << " " << *k << "\n";
+		output << "\n " << *(*k);
 	}
 	
 	return output;

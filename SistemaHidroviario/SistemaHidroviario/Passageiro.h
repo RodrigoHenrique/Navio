@@ -18,6 +18,7 @@ public:
 	
 	const Passageiro &operator=(const Passageiro &);
 	bool operator==(const Passageiro &) const;
+	bool operator!=(const Passageiro &) const;
 	
 	string get_nome() const;
 	string get_sobrenome() const;

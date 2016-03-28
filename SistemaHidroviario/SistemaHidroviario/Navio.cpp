@@ -1,5 +1,8 @@
 #include "Navio.h"
 #include "Embarcacao.h"
+#include <iostream>;
+
+using std::cin;
 
 Navio::Navio(const string &nome_embarcacao,const Data &data_registro,const string &proprietario,const string &porto_partida)
 :Embarcacao(nome_embarcacao,data_registro,proprietario,porto_partida)
@@ -8,6 +11,92 @@ Navio::Navio(const string &nome_embarcacao,const Data &data_registro,const strin
 
 Navio::~Navio()
 {
+}
+
+ostream &operator<<(ostream &output,const Navio &navio_imprime)
+{
+	output << "Nome do navio: "  << navio_imprime.get_nome_embarcacao();
+	output << "\nRegistrado em:\n        " << navio_imprime.get_data_registro();
+	output << "\nPorto de partida: " << navio_imprime.get_porto_partida();
+	output << "\nPorto de chegada: " << navio_imprime.get_porto_chegada();
+	output << "\nEstado do motor: " << navio_imprime.get_estado_motor();
+	output << "\nDistancia do destino: " << navio_imprime.get_distancia_km();
+	output << "\nVelocidade atual: " << navio_imprime.get_velocidade_km();
+	output << "\nTempo de viagem decorrido: " << navio_imprime.get_tempo_decorrido();
+	output << "\n\nNome do Proprietario: " << navio_imprime.get_proprietario();
+	output << "\nTipo de locomocao: " << navio_imprime.get_tipo_locomocao();
+	output << "\nTripulacao:";
+	if(navio_imprime.get_tripulantes().empty()) output << " sem tripulacao";
+	for(int i=0;i<navio_imprime.get_tripulantes().size();i++)
+	{
+		output << "\n-Tripulante " << i << ": " << navio_imprime.get_tripulantes()[i];
+	}
+	output << "\nPassageiros: ";
+	if(navio_imprime.get_passageiros_navio().empty()) output << " sem passageiros";
+	int j;
+	output << "\nImprimir a relacao de passageiros do navio? <digite 1-sim> : ";
+	cin >> j;
+	if(j != 1) return output;
+	list <Passageiro *> ::iterator k;
+	for(k = navio_imprime.get_passageiros_navio().begin();k!=navio_imprime.get_passageiros_navio().end();k++)
+	{
+		output << "\n " << *(*k);
+	}
+	return output;
+}
+
+const Navio & Navio::operator=(const Navio &navio_atribuicao)
+{
+	set_navegacao_liberada(navio_atribuicao.get_navegacao_liberada());
+	set_porto_partida(navio_atribuicao.get_porto_partida());
+	set_porto_chegada(navio_atribuicao.get_porto_chegada());
+	set_nome_embarcacao(navio_atribuicao.get_nome_embarcacao());
+	set_data_registro(navio_atribuicao.get_data_registro());
+	set_embarcacao_aportada(navio_atribuicao.get_embarcacao_aportada());
+	set_rota_definida(navio_atribuicao.get_rota_definida());
+	set_tripulacao_definida(navio_atribuicao.get_tripulacao_definida());
+	set_distancia_km(navio_atribuicao.get_distancia_km());
+	set_estado_motor(navio_atribuicao.get_estado_motor());
+	set_velocidade_km(navio_atribuicao.get_velocidade_km());
+	set_tempo_decorrido(navio_atribuicao.get_tempo_decorrido());
+	set_proprietario(navio_atribuicao.get_proprietario());
+	set_tipo_locomocao(navio_atribuicao.get_tipo_locomocao());
+	set_tripulantes(navio_atribuicao.get_tripulantes());
+	set_passageiros(navio_atribuicao.get_passageiros());
+}
+
+bool Navio::operator== (const Navio &navio_comparacao) const
+{
+	if(get_navegacao_liberada() != navio_comparacao.get_navegacao_liberada()) return false;
+	if(get_porto_partida() != navio_comparacao.get_porto_partida()) return false;
+	if(get_porto_chegada() != navio_comparacao.get_porto_chegada()) return false;
+	if(get_nome_embarcacao() != navio_comparacao.get_nome_embarcacao()) return false;
+	if(get_data_registro() != navio_comparacao.get_data_registro()) return false;
+	if(get_embarcacao_aportada() != navio_comparacao.get_embarcacao_aportada()) return false;
+	if(get_rota_definida() != navio_comparacao.get_rota_definida()) return false;
+	if(get_tripulacao_definida() != navio_comparacao.get_tripulacao_definida()) return false;
+	if(get_distancia_km() != navio_comparacao.get_distancia_km()) return false;
+	if(get_estado_motor() != navio_comparacao.get_estado_motor()) return false;
+	if(get_velocidade_km() != navio_comparacao.get_velocidade_km()) return false;
+	if(get_tempo_decorrido() != navio_comparacao.get_tempo_decorrido()) return false;
+	if(get_proprietario() != navio_comparacao.get_proprietario()) return false;
+	if(get_tipo_locomocao() != navio_comparacao.get_tipo_locomocao()) return false;
+	if(get_tripulantes().size() != navio_comparacao.get_tripulantes().size()) return false;
+	for(int i=0;i<navio_comparacao.get_tripulantes().size();i++)
+	{
+		if(get_tripulantes()[i] != navio_comparacao.get_tripulantes()[i]) return false;
+	}
+	
+	if(get_passageiros().size() != navio_comparacao.get_passageiros().size()) return false;
+	list <Passageiro *> ::iterator k;
+	list <Passageiro *> ::iterator j = get_passageiros().begin();
+	for(k = navio_comparacao.get_passageiros().begin();k!=navio_comparacao.get_passageiros().end();k++)
+	{
+		if(*(*j) != *(*k)) return false;
+		j++;
+	}
+	
+	return true;
 }
 
 list<Passageiro * > Navio::get_passageiros_navio() const
