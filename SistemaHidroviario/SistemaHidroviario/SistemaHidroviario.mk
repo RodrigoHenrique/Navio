@@ -63,7 +63,7 @@ AS       := C:/cygwin64/bin/x86_64-pc-cygwin-as.exe
 ##
 CodeLiteDir:=C:\Program Files\CodeLite
 Objects0=$(IntermediateDirectory)/Carga.cpp$(ObjectSuffix) $(IntermediateDirectory)/Data.cpp$(ObjectSuffix) $(IntermediateDirectory)/Embarcacao.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/Passageiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Porto.cpp$(ObjectSuffix) $(IntermediateDirectory)/Submarino.cpp$(ObjectSuffix) $(IntermediateDirectory)/Tripulante.cpp$(ObjectSuffix) $(IntermediateDirectory)/Veiculo.cpp$(ObjectSuffix) $(IntermediateDirectory)/Navio.cpp$(ObjectSuffix) \
-	$(IntermediateDirectory)/Mercadoria.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Mercante.cpp$(ObjectSuffix) 
+	$(IntermediateDirectory)/Mercadoria.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cruzeiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Cargueiro.cpp$(ObjectSuffix) $(IntermediateDirectory)/Mercante.cpp$(ObjectSuffix) $(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) 
 
 
 
@@ -205,6 +205,14 @@ $(IntermediateDirectory)/Mercante.cpp$(DependSuffix): Mercante.cpp
 
 $(IntermediateDirectory)/Mercante.cpp$(PreprocessSuffix): Mercante.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/Mercante.cpp$(PreprocessSuffix) "Mercante.cpp"
+
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix): CruzeiroComercial.cpp $(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/FACOMP/git/Navio/SistemaHidroviario/SistemaHidroviario/CruzeiroComercial.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix): CruzeiroComercial.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/CruzeiroComercial.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/CruzeiroComercial.cpp$(DependSuffix) -MM "CruzeiroComercial.cpp"
+
+$(IntermediateDirectory)/CruzeiroComercial.cpp$(PreprocessSuffix): CruzeiroComercial.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/CruzeiroComercial.cpp$(PreprocessSuffix) "CruzeiroComercial.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

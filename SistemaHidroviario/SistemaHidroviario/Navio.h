@@ -25,7 +25,8 @@ public:
     
 	virtual int definir_velocidade();
 	virtual bool mover();
-	
+	virtual int get_velocidade_max() const;
+    
 	list<Passageiro *> get_passageiros_navio() const;
     
 	bool get_passageiros_a_bordo() const;

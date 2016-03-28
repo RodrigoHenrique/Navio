@@ -33,6 +33,7 @@ public:
 	bool get_estado_motor() const;
 	int get_velocidade_km() const;
 	int get_tempo_decorrido() const;
+    virtual int get_velocidade_max() const = 0;
 	
 	vector<Tripulante> get_tripulantes() const;
 	list<Passageiro *> get_passageiros() const;

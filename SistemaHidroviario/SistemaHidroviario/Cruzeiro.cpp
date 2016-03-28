@@ -67,3 +67,13 @@ bool Cruzeiro::operator!= (const Cruzeiro &cruzeiro_comparacao) const
     if((*this) == cruzeiro_comparacao) return false;
     else return true;
 }
+
+int Cruzeiro::get_velocidade_max_esp() const
+{
+    return get_velocidade_max();
+}
+
+int Cruzeiro::get_distancia_km_esp() const
+{
+    return get_velocidade_max();
+}

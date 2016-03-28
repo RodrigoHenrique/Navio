@@ -22,6 +22,9 @@ public:
     bool operator!=(const Cruzeiro &) const;
     
     void definir_passageiros(list<Passageiro *> );
+    
+    int get_velocidade_max_esp() const;
+    int get_distancia_km_esp() const;
 
 };
 

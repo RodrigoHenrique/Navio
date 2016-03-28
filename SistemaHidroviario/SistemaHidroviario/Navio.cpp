@@ -186,3 +186,8 @@ bool Navio::mover()
 	set_navegacao_liberada();
 	return get_passageiros_a_bordo();
 }
+
+int Navio::get_velocidade_max() const
+{
+    return 32;
+}
