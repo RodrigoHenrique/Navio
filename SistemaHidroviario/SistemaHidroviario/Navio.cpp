@@ -10,6 +10,12 @@ Navio::Navio(const string &nome_embarcacao,const Data &data_registro,const strin
 {
 }
 
+Navio::Navio(const Navio &navio_copia)
+:Embarcacao(navio_copia.get_nome_embarcacao(),navio_copia.get_data_registro(),navio_copia.get_proprietario(),navio_copia.get_porto_partida())
+{
+    set_passageiros(navio_copia.get_passageiros());
+}
+
 Navio::~Navio()
 {
 }
@@ -32,18 +38,6 @@ ostream &operator<<(ostream &output,const Navio &navio_imprime)
 	{
 		output << "\n-Tripulante " << i << ": " << navio_imprime.get_tripulantes()[i];
 	}
-	output << "\nPassageiros: ";
-	if(navio_imprime.get_passageiros_navio().empty()) output << " sem passageiros";
-	int j;
-	output << "\nImprimir a relacao de passageiros do navio? <digite 1-sim> : ";
-	cin >> j;
-	if(j != 1) return output;
-	list <Passageiro *> ::iterator k;
-	for(k = navio_imprime.get_passageiros_navio().begin();k!=navio_imprime.get_passageiros_navio().end();k++)
-	{
-		output << "\n " << *(*k);
-	}
-	return output;
 }
 
 const Navio & Navio::operator=(const Navio &navio_atribuicao)
@@ -88,16 +82,13 @@ bool Navio::operator== (const Navio &navio_comparacao) const
 		if(get_tripulantes()[i] != navio_comparacao.get_tripulantes()[i]) return false;
 	}
 	
-	if(get_passageiros().size() != navio_comparacao.get_passageiros().size()) return false;
-	list <Passageiro *> ::iterator k;
-	list <Passageiro *> ::iterator j = get_passageiros().begin();
-	for(k = navio_comparacao.get_passageiros().begin();k!=navio_comparacao.get_passageiros().end();k++)
-	{
-		if(*(*j) != *(*k)) return false;
-		j++;
-	}
-	
 	return true;
+}
+
+bool Navio::operator!= (const Navio &navio_comparacao) const
+{
+    if((*this) == navio_comparacao) return false;
+    else return true;
 }
 
 list<Passageiro * > Navio::get_passageiros_navio() const
@@ -128,11 +119,19 @@ void Navio::set_mercadorias_a_bordo()
     else this->mercadorias_a_bordo = true;
 }
 
-void Navio::definir_passageiros(list<Passageiro * > passageiros_navio)
+void Navio::inicia_passageiros_a_bordo()
 {
-	if(passageiros_navio.size() > Navio::qde_max_passageiros) return;
-	set_passageiros(passageiros_navio);
-	set_passageiros_a_bordo();
+    this->passageiros_a_bordo = false;
+}
+
+void Navio::inicia_cargas_a_bordo()
+{
+    this->cargas_a_bordo = false;
+}
+
+void Navio::inicia_mercadorias_a_bordo()
+{
+    this->mercadorias_a_bordo = false;
 }
 
 void Navio::definir_cargas(list<Carga *> cargas_navio)

@@ -7,6 +7,7 @@
 using std::cout;
 using std::cin;
 
+
 Embarcacao::Embarcacao(const string &nome_embarcacao,const Data &data_registro,const string &proprietario,const string &porto_partida)
 :Veiculo(proprietario,"Mar")
 {

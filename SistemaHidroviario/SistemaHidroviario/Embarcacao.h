@@ -64,7 +64,6 @@ public:
 	void ligar_motores();
 	
 	virtual int definir_velocidade() = 0;
-	virtual void definir_passageiros(list<Passageiro *> ) = 0;
     virtual void definir_cargas(list<Carga *> ) = 0;
     virtual void definir_mercadorias(list<Mercadoria * > ) = 0;
 	
