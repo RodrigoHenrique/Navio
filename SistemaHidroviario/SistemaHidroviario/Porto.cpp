@@ -216,6 +216,7 @@ void Porto::saida_passageiros(list<Passageiro *> *passageiros_saida)
 		{
 			if(k == passageiros_porto.end()) break;
 			passageiros_saida->push_back(*k);
+            passageiros_porto.pop_back();
 			k++;
 			i--;
 		}
@@ -248,6 +249,7 @@ void Porto::saida_cargas(list<Carga *> *cargas_saida)
         {
             if(k == cargas_porto.end()) break;
             cargas_saida->push_back(*k);
+            cargas_porto.pop_back();
             k++;
             i--;
         }
@@ -279,6 +281,7 @@ void Porto::saida_mercadorias(list<Mercadoria *> *mercadorias_saida)
         {
             if(k == mercadorias_porto.end()) break;
             mercadorias_saida->push_back(*k);
+            mercadorias_porto.pop_back();
             k++;
             i--;
         }
